@@ -1,16 +1,19 @@
 import sys
 if sys.version_info >= (3, 0):
     from panda3d.core import *
+    from direct.showbase import EventManager, ExceptionVarDump
+    from otp.distributed.PythonUtil import *
+    from otp.distributed import PythonUtil
 else:
     from pandac.PandaModules import *
+    from direct.showbase.PythonUtil import *
+    from direct.showbase import PythonUtil, EventManager, ExceptionVarDump
 
 from direct.directnotify.DirectNotifyGlobal import *
 from direct.showbase.MessengerGlobal import *
 from direct.showbase.BulletinBoardGlobal import *
 from direct.showbase.JobManagerGlobal import *
 from direct.showbase.EventManagerGlobal import *
-from direct.showbase.PythonUtil import *
-from direct.showbase import PythonUtilm EventManagerm, ExceptionVarDump
 from direct.interval.IntervalManager import ivalMgr
 from direct.task.TaskManagerGlobal import *
 from direct.task import Task
