@@ -119,11 +119,11 @@ class DistributedPartyCatchActivity(DistributedPartyActivity, DistributedPartyCa
         DistributedPartyCatchActivity.notify.debug('PartyCatch: load')
         self.activityFSM = CatchActivityFSM(self)
         if __dev__:
-            for o in xrange(3):
+            for o in range(3):
                 print {0: 'SPOTS PER PLAYER',
                  1: 'DROPS PER MINUTE PER SPOT DURING NORMAL DROP PERIOD',
                  2: 'DROPS PER MINUTE PER PLAYER DURING NORMAL DROP PERIOD'}[o]
-                for i in xrange(1, self.FallRateCap_Players + 10):
+                for i in range(1, self.FallRateCap_Players + 10):
                     self.defineConstants(forceNumPlayers=i)
                     numDropLocations = self.DropRows * self.DropColumns
                     numDropsPerMin = 60.0 / self.DropPeriod

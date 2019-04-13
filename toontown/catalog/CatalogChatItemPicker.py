@@ -1,7 +1,13 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import CatalogItem
+else:
+    from pandac.PandaModules import *
+    import CatalogItem
+
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from direct.showbase import DirectObject
-import CatalogItem
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from otp.otpbase import OTPLocalizer

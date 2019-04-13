@@ -344,7 +344,7 @@ class ItemSelector(DirectFrame):
 
         def setUpdatedDNA(self):
             currKartDNA = self.avatar.getKartDNA()
-            for i in xrange(len(self.updatedDNA)):
+            for i in range(len(self.updatedDNA)):
                 if self.updatedDNA[i] != currKartDNA[i]:
                     self.avatar.requestKartDNAFieldUpdate(i, self.updatedDNA[i])
 

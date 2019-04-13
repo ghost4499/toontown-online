@@ -1,13 +1,20 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import BattleBase
+    from .SuitBattleGlobals import *
+else:
+    from pandac.PandaModules import *
+    import BattleBase
+    from SuitBattleGlobals import *
+
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase.ToontownBattleGlobals import *
 from toontown.toonbase.ToontownGlobals import *
-from SuitBattleGlobals import *
 from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal
-import string
 from direct.gui import OnscreenText
-import BattleBase
+import string
 
 class PlayByPlayText(OnscreenText.OnscreenText):
     notify = DirectNotifyGlobal.directNotify.newCategory('PlayByPlayText')

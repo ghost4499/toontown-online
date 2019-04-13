@@ -1,13 +1,17 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import HolidayDecorator, HalloweenHolidayDecorator, CrashedLeaderBoardDecorator
+else:
+    from pandac.PandaModules import *
+    import HolidayDecorator, HalloweenHolidayDecorator, CrashedLeaderBoardDecorator
+
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.battle import SuitBattleGlobals
 from toontown.toonbase import TTLocalizer
-import HolidayDecorator
-import HalloweenHolidayDecorator
-import CrashedLeaderBoardDecorator
 from direct.interval.IntervalGlobal import *
 import calendar
 from copy import deepcopy

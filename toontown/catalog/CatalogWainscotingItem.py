@@ -1,4 +1,10 @@
-from CatalogSurfaceItem import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import Texture
+    from .CatalogSurfaceItem import *
+else:
+    from pandac.PandaModules import Texture
+    from CatalogSurfaceItem import *
 WSTTextureName = 0
 WSTColor = 1
 WSTBasePrice = 2
@@ -59,7 +65,6 @@ class CatalogWainscotingItem(CatalogSurfaceItem):
         return WainscotingTypes[self.patternIndex][WSTBasePrice]
 
     def loadTexture(self):
-        from pandac.PandaModules import Texture
         filename = WainscotingTypes[self.patternIndex][WSTTextureName]
         texture = loader.loadTexture(filename)
         texture.setMinfilter(Texture.FTLinearMipmapLinear)

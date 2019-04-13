@@ -1,8 +1,13 @@
-from pandac.PandaModules import NodePath, VBase3
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import NodePath, VBase3
+    from . import DistributedDoor, DoorTypes
+else:
+    from pandac.PandaModules import NodePath, VBase3
+    import DistributedDoor, DoorTypes
+
 from direct.directnotify import DirectNotifyGlobal
 from direct.interval.IntervalGlobal import Parallel, Sequence, Wait, HprInterval, LerpHprInterval, SoundInterval
-from toontown.building import DistributedDoor
-from toontown.building import DoorTypes
 if (__debug__):
     import pdb
 

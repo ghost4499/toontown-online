@@ -1,23 +1,27 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import BattleBase, Fanfare
+else:
+    from pandac.PandaModules import *
+    import BattleBase, Fanfare
+
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from direct.interval.IntervalGlobal import *
 from toontown.toonbase import ToontownBattleGlobals
-import BattleBase
 from direct.directnotify import DirectNotifyGlobal
-import random
-import string
 from toontown.quest import Quests
-import copy
 from toontown.suit import SuitDNA
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toon import NPCToons
-import math
 from toontown.coghq import CogDisguiseGlobals
 from toontown.shtiker import DisguisePage
-import Fanfare
 from otp.otpbase import OTPGlobals
+import random
+import string
+import copy
+import math
 
 class RewardPanel(DirectFrame):
     notify = DirectNotifyGlobal.directNotify.newCategory('RewardPanel')

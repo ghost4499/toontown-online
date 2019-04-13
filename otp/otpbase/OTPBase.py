@@ -1,6 +1,12 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import Camera, TPLow, VBase4, ColorWriteAttrib, Filename, getModelPath, NodePath
+    from . import OTPRender
+else:
+    from pandac.PandaModules import Camera, TPLow, VBase4, ColorWriteAttrib, Filename, getModelPath, NodePath
+    import OTPRender
+
 from direct.showbase.ShowBase import ShowBase
-from pandac.PandaModules import Camera, TPLow, VBase4, ColorWriteAttrib, Filename, getModelPath, NodePath
-import OTPRender
 import time
 import math
 import re

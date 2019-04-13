@@ -25,7 +25,7 @@ def printAllBossbotInfo():
 def iterateBossbotCountryClubs(func):
     from toontown.toonbase import ToontownGlobals
     for countryClubId in [ToontownGlobals.BossbotCountryClubIntA, ToontownGlobals.BossbotCountryClubIntB, ToontownGlobals.BossbotCountryClubIntC]:
-        for floorNum in xrange(ToontownGlobals.CountryClubNumFloors[countryClubId]):
+        for floorNum in range(ToontownGlobals.CountryClubNumFloors[countryClubId]):
             func(CountryClubLayout(countryClubId, floorNum))
 
 
@@ -151,7 +151,7 @@ class CountryClubLayout:
         self.roomIds = countryClubLayouts[layoutIndex][floorNum]
         hallwayRng = self.getRng()
         connectorRoomNames = CountryClubRoomSpecs.BossbotCountryClubConnectorRooms
-        for i in xrange(self.numHallways):
+        for i in range(self.numHallways):
             self.hallways.append(hallwayRng.choice(connectorRoomNames))
 
     def _genFloorLayout(self):
@@ -189,7 +189,7 @@ class CountryClubLayout:
 
         if middleRoomsLeft > 0:
             actionRoomIds = numBattles2middleRoomIds[0]
-            for i in xrange(middleRoomsLeft):
+            for i in range(middleRoomsLeft):
                 roomId = rng.choice(actionRoomIds)
                 actionRoomIds.remove(roomId)
                 middleRoomIds.append(roomId)

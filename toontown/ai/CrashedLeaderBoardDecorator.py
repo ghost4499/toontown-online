@@ -1,9 +1,15 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
+    from . import HolidayDecorator
+else:
+    from pandac.PandaModules import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
+    import HolidayDecorator
+
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-import HolidayDecorator
 from toontown.toonbase import ToontownGlobals
-from pandac.PandaModules import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
 from toontown.hood import GSHood
 
 class CrashedLeaderBoardDecorator(HolidayDecorator.HolidayDecorator):

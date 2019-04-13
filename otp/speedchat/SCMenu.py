@@ -1,10 +1,18 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from otp.distributed.PythonUtil import makeTuple
+    from .SCConstants import *
+    from .SCObject import SCObject
+else:
+    from pandac.PandaModules import *
+    from direct.showbase.PythonUtil import makeTuple
+    from SCConstants import *
+    from SCObject import SCObject
+
 from direct.gui.DirectGui import *
 from direct.task import Task
-from SCConstants import *
 from direct.interval.IntervalGlobal import *
-from SCObject import SCObject
-from direct.showbase.PythonUtil import makeTuple
 import types
 
 class SCMenu(SCObject, NodePath):
@@ -293,7 +301,7 @@ class SCMenu(SCObject, NodePath):
             maxWidth = max(maxWidth, widthToCover)
         memberWidth, memberHeight = maxWidth, maxHeight
         self.width = maxWidth
-        for i in xrange(len(visibleMembers)):
+        for i in range(len(visibleMembers)):
             member = visibleMembers[i]
             member.setPos(0, 0, -i * maxHeight)
             member.setDimensions(memberWidth, memberHeight)

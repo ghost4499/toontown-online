@@ -1,3 +1,9 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import TextProperties, TextPropertiesManager
+else:
+    from pandac.PandaModules import TextProperties, TextPropertiesManager
+
 import string
 from otp.otpbase.OTPLocalizerEnglishProperty import *
 lTheBrrrgh = 'The Brrrgh'
@@ -84,8 +90,6 @@ WhisperToFormatName = 'To %s'
 WhisperFromFormatName = '%s whispers'
 ThoughtOtherFormatName = '%s thinks'
 ThoughtSelfFormatName = 'You think'
-from pandac.PandaModules import TextProperties
-from pandac.PandaModules import TextPropertiesManager
 shadow = TextProperties()
 shadow.setShadow(-0.025, -0.025)
 shadow.setShadowColor(0, 0, 0, 1)

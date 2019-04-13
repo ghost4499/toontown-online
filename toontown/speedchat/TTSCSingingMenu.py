@@ -32,7 +32,7 @@ class TTSCSingingMenu(SCMenu):
         except:
             return
 
-        for count in xrange(len(SingingMenuGuide)):
+        for count in range(len(SingingMenuGuide)):
             section = SingingMenuGuide[count]
             if section[0] == -1:
                 for phrase in section[1]:

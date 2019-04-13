@@ -1,13 +1,18 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .BattleBase import *
+    from . import DistributedBattleBase, MovieUtil, SuitBattleGlobals
+else:
+    from pandac.PandaModules import *
+    from BattleBase import *
+    import DistributedBattleBase, MovieUtil, SuitBattleGlobals
+
 from direct.interval.IntervalGlobal import *
-from BattleBase import *
 from direct.actor import Actor
 from toontown.distributed import DelayDelete
 from direct.directnotify import DirectNotifyGlobal
-import DistributedBattleBase
-import MovieUtil
 from toontown.suit import Suit
-import SuitBattleGlobals
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toonbase import ToontownGlobals
 from direct.fsm import State

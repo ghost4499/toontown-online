@@ -1,4 +1,13 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import DistributedAvatar, Avatar, PlayerBase
+    from .Avatar import teleportNotify
+else:
+    from pandac.PandaModules import *
+    import DistributedAvatar, Avatar, PlayerBase
+    from Avatar import teleportNotify
+
 from libotp import WhisperPopup
 from libotp import CFQuicktalker, CFPageButton, CFQuitButton, CFSpeech, CFThought, CFTimeout
 from otp.chat import ChatGarbler
@@ -7,12 +16,9 @@ from direct.task import Task
 from otp.otpbase import OTPLocalizer
 from otp.speedchat import SCDecoders
 from direct.showbase import PythonUtil
-from otp.avatar import DistributedAvatar
 import time
-from otp.avatar import Avatar, PlayerBase
 from otp.chat import TalkAssistant
 from otp.otpbase import OTPGlobals
-from otp.avatar.Avatar import teleportNotify
 from otp.distributed.TelemetryLimited import TelemetryLimited
 if base.config.GetBool('want-chatfilter-hacks', 0):
     from otp.switchboard import badwordpy

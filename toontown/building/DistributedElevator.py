@@ -1,19 +1,27 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from otp.distributed import PythonUtil
+    from .ElevatorConstants import *
+    from .ElevatorUtils import *
+    import BoardingGroupShow
+else:
+    from pandac.PandaModules import *
+    from direct.showbase import PythonUtil
+    from ElevatorConstants import *
+    from ElevatorUtils import *
+    import BoardingGroupShow
+
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-from ElevatorConstants import *
-from ElevatorUtils import *
-from direct.showbase import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM, State
 from direct.distributed import DistributedObject
-from direct.fsm import State
 from toontown.toonbase import TTLocalizer, ToontownGlobals
 from direct.task.Task import Task
 from toontown.distributed import DelayDelete
 from toontown.hood import ZoneUtil
 from toontown.toontowngui import TeaserPanel
-from toontown.building import BoardingGroupShow
 
 class DistributedElevator(DistributedObject.DistributedObject):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedElevator')

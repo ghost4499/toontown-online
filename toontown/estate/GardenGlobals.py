@@ -74,9 +74,9 @@ FLOWER_PINK = 4
 FLOWER_YELLOW = 5
 FLOWER_WHITE = 6
 FLOWER_GREEN = 7
-ToonStatuaryTypeIndices = xrange(205, 209)
-ChangingStatuaryTypeIndices = xrange(230, 232)
-AnimatedStatuaryTypeIndices = xrange(234, 238)
+ToonStatuaryTypeIndices = range(205, 209)
+ChangingStatuaryTypeIndices = range(230, 232)
+AnimatedStatuaryTypeIndices = range(234, 238)
 PlantAttributes = {49: {'name': TTLocalizer.FlowerSpeciesNames[49],
       'plantType': FLOWER_TYPE,
       'growthThresholds': (1, 1, 1),

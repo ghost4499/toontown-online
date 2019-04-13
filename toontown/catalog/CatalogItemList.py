@@ -1,8 +1,14 @@
-import CatalogItem
-from pandac.PandaModules import *
-import types
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import CatalogItem
+else:
+    from pandac.PandaModules import *
+    import CatalogItem
+
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
+import types
 
 class CatalogItemList:
 

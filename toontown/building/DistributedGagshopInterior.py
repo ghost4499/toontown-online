@@ -1,11 +1,17 @@
-from toontown.toonbase.ToonBaseGlobal import *
-from pandac.PandaModules import *
-from toontown.toonbase.ToontownGlobals import *
-import random
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors
+else:
+    from pandac.PandaModules import *
+    import ToonInteriorColors
+
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
-import ToonInteriorColors
+from toontown.toonbase.ToonBaseGlobal import *
+from toontown.toonbase.ToontownGlobals import *
 from toontown.hood import ZoneUtil
+import random
 
 class DistributedGagshopInterior(DistributedObject.DistributedObject):
 

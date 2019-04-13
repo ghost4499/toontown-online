@@ -1,15 +1,25 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .BattleBase import *
+    from .BattleProps import *
+    from .BattleSounds import *
+    from . import MovieCamera, MovieUtil
+    from .MovieUtil import calcAvgSuitPos
+else:
+    from pandac.PandaModules import *
+    from BattleBase import *
+    from BattleProps import *
+    from BattleSounds import *
+    import MovieCamera, MovieUtil
+    from MovieUtil import calcAvgSuitPos
+
 from direct.interval.IntervalGlobal import *
-from BattleBase import *
-from BattleProps import *
-from BattleSounds import *
 from toontown.toon.ToonDNA import *
 from toontown.suit.SuitDNA import *
 from direct.directnotify import DirectNotifyGlobal
 import random
-import MovieCamera
-import MovieUtil
-from MovieUtil import calcAvgSuitPos
+
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieThrow')
 hitSoundFiles = ('AA_tart_only.mp3', 'AA_slice_only.mp3', 'AA_slice_only.mp3', 'AA_slice_only.mp3', 'AA_slice_only.mp3', 'AA_wholepie_only.mp3', 'AA_wholepie_only.mp3')
 tPieLeavesHand = 2.7

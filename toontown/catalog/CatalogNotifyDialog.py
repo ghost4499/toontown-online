@@ -1,8 +1,14 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+
 CatalogNotifyBaseXPos = 0.4
 
 class CatalogNotifyDialog:

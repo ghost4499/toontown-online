@@ -80,7 +80,7 @@ class LevelSpec:
 
     def getAllEntIdsFromAllScenarios(self):
         entIds = self.getGlobalEntIds()
-        for scenario in xrange(self.getNumScenarios()):
+        for scenario in range(self.getNumScenarios()):
             entIds.extend(self.getScenarioEntIds(scenario))
 
         return entIds

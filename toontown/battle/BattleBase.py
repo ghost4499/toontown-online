@@ -1,4 +1,9 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from toontown.toonbase.ToontownBattleGlobals import *
 from direct.task.Timer import *
 import math

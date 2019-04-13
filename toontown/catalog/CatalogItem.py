@@ -1,12 +1,17 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.directnotify import DirectNotifyGlobal
-from pandac.PandaModules import *
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownGlobals
 from direct.interval.IntervalGlobal import *
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 import types
-import sys
+
 CatalogReverseType = None
 CatalogItemVersion = 8
 CatalogBackorderMarkup = 1.2

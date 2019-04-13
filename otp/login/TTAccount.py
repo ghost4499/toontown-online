@@ -1,21 +1,25 @@
-from pandac.PandaModules import *
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from otp.distributed import PythonUtil
+else:
+    from pandac.PandaModules import *
+    import HTTPUtil, RemoteValueSet
+    from direct.showbase import PythonUtil
+
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase import PythonUtil
 from otp.otpbase import OTPLocalizer
-import HTTPUtil
-import RemoteValueSet
 import copy
 accountServer = ''
 accountServer = launcher.getAccountServer()
-print 'TTAccount: accountServer from launcher: ', accountServer
+print('TTAccount: accountServer from launcher: ', accountServer)
 configAccountServer = base.config.GetString('account-server', '')
 if configAccountServer:
     accountServer = configAccountServer
-    print 'TTAccount: overriding accountServer from config: ', accountServer
+    print('TTAccount: overriding accountServer from config: ', accountServer)
 if not accountServer:
     accountServer = 'https://toontown.go.com'
-    print 'TTAccount: default accountServer: ', accountServer
+    print('TTAccount: default accountServer: ', accountServer)
 accountServer = URLSpec(accountServer, 1)
 
 def getAccountServer():

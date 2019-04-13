@@ -1,5 +1,11 @@
-import Entity, BasicEntities
-from pandac.PandaModules import NodePath
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import NodePath
+    from . import Entity, BasicEntities
+else:
+    from pandac.PandaModules import NodePath
+    import Entity, BasicEntities
+
 from direct.directnotify import DirectNotifyGlobal
 
 class LocatorEntity(Entity.Entity, NodePath):

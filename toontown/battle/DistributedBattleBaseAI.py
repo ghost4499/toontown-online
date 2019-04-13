@@ -1,22 +1,30 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .BattleBase import *
+    from .BattleCalculatorAI import *
+    from .SuitBattleGlobals import *
+    from . import BattleExperienceAI
+else:
+    from pandac.PandaModules import *
+    from BattleBase import *
+    from BattleCalculatorAI import *
+    from SuitBattleGlobals import *
+    import BattleExperienceAI
+
 from otp.ai.AIBase import *
 from direct.distributed.ClockDelta import *
-from BattleBase import *
-from BattleCalculatorAI import *
 from toontown.toonbase.ToontownBattleGlobals import *
-from SuitBattleGlobals import *
-from pandac.PandaModules import *
-import BattleExperienceAI
 from direct.distributed import DistributedObjectAI
 from direct.fsm import ClassicFSM, State
-from direct.fsm import State
 from direct.task import Task
 from direct.directnotify import DirectNotifyGlobal
 from toontown.ai import DatabaseObject
 from toontown.toon import DistributedToonAI
 from toontown.toon import InventoryBase
 from toontown.toonbase import ToontownGlobals
-import random
 from toontown.toon import NPCToons
+import random
 
 class DistributedBattleBaseAI(DistributedObjectAI.DistributedObjectAI, BattleBase):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedBattleBaseAI')

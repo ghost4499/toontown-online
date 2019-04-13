@@ -1,8 +1,16 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .SCObject import SCObject
+    from .SCElement import SCElement
+    from .SCMenu import SCMenu
+else:
+    from pandac.PandaModules import *
+    from SCObject import SCObject
+    from SCElement import SCElement
+    from SCMenu import SCMenu
+
 from direct.gui.DirectGui import *
-from SCObject import SCObject
-from SCElement import SCElement
-from SCMenu import SCMenu
 import types
 
 class SCMenuHolder(SCElement):

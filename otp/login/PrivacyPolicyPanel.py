@@ -1,7 +1,13 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .MultiPageTextFrame import *
+else:
+    from pandac.PandaModules import *
+    from MultiPageTextFrame import *
+
 from otp.otpbase.OTPGlobals import *
 from direct.gui.DirectGui import *
-from MultiPageTextFrame import *
 from direct.directnotify import DirectNotifyGlobal
 from otp.otpbase import OTPLocalizer
 from otp.otpgui import OTPDialog

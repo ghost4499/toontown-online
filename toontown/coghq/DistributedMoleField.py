@@ -99,8 +99,8 @@ class DistributedMoleField(DistributedNodePathEntity, MoleFieldBase.MoleFieldBas
     def loadModel(self):
         moleIndex = 0
         self.moleHills = []
-        for indexY in xrange(self.numSquaresY):
-            for indexX in xrange(self.numSquaresX):
+        for indexY in range(self.numSquaresY):
+            for indexX in range(self.numSquaresX):
                 xPos = indexX * self.spacingX
                 yPos = indexY * self.spacingY
                 newMoleHill = MoleHill.MoleHill(xPos, yPos, 0, self, moleIndex)

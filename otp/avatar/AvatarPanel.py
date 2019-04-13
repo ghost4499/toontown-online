@@ -1,4 +1,9 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.gui.DirectGui import *
 from direct.showbase import DirectObject
 import Avatar

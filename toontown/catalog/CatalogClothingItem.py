@@ -1,11 +1,17 @@
-import CatalogItem
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . CatalogItem
+else:
+    from pandac.PandaModules import *
+    import CatalogItem
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toon import ToonDNA
-import random
 from direct.showbase import PythonUtil
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+import random
+
 CTArticle = 0
 CTString = 1
 CTBasePrice = 2

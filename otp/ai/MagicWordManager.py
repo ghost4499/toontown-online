@@ -1,4 +1,9 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.showbase import GarbageReport, ContainerReport, MessengerLeakDetector
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
@@ -529,7 +534,7 @@ class MagicWordManager(DistributedObject.DistributedObject):
             name = 'default'
             p = Point3()
             ts = time.time()
-            for i in xrange(1000000):
+            for i in range(1000000):
                 p.set(1, 2, 3)
 
             tf = time.time()

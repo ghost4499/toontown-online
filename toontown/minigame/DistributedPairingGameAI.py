@@ -51,7 +51,7 @@ class DistributedPairingGameAI(DistributedMinigameAI):
             self.faceUpDict[avId] = []
 
         self.deck = PairingGameGlobals.createDeck(self.deckSeed, self.numPlayers)
-        for index in xrange(len(self.deck.cards)):
+        for index in range(len(self.deck.cards)):
             cardValue = self.deck.cards[index]
             oneCard = PlayingCardBase(cardValue)
             self.cards.append(oneCard)

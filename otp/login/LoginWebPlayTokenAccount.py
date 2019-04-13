@@ -1,6 +1,12 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import LoginTTAccount
+else:
+    from pandac.PandaModules import *
+    import LoginTTAccount
+
 from direct.directnotify import DirectNotifyGlobal
-import LoginTTAccount
 
 class LoginWebPlayTokenAccount(LoginTTAccount.LoginTTAccount):
     notify = DirectNotifyGlobal.directNotify.newCategory('LoginWebPlayTokenAccount')

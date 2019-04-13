@@ -1,8 +1,13 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.showbase import DirectObject
 from otp.otpbase import OTPGlobals
 import sys
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from otp.otpbase import OTPLocalizer
 
 class ChatInputTyped(DirectObject.DirectObject):
@@ -127,7 +132,10 @@ class ChatInputTyped(DirectObject.DirectObject):
     def __execMessage(self, message):
         if not ChatInputTyped.ExecNamespace:
             ChatInputTyped.ExecNamespace = {}
-            exec 'from pandac.PandaModules import *' in globals(), self.ExecNamespace
+            if sys.version_info >= (3, 0):
+                exec 'from panda3d.core import *' in globals(), self.ExecNamespace
+            else:
+                exec 'from pandac.PandaModules import *' in globals(), self.ExecNamespace
             self.importExecNamespace()
         try:
             if not isClient():

@@ -1,14 +1,18 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import Elevator
+else:
+    from pandac.PandaModules import *
+    import Elevator
+
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from toontown.hood import Place
 from direct.showbase import DirectObject
-from direct.fsm import StateData
-from direct.fsm import ClassicFSM, State
-from direct.fsm import State
+from direct.fsm import StateData, ClassicFSM, State
 from toontown.town import TownBattle
 from toontown.suit import Suit
-import Elevator
 from direct.task.Task import Task
 from otp.distributed.TelemetryLimiter import RotationLimitToH, TLGatherAllAvs
 from toontown.toonbase import ToontownGlobals

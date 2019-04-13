@@ -281,15 +281,15 @@ class DistributedCannonGame(DistributedMinigame):
                 y = yMax
         else:
             y = self.randomNumGen.randint(yMin, yMax)
-        xRange = TOWER_X_RANGE
+        range = TOWER_X_RANGE
         if self.DEBUG_TOWER_RANGE:
             if self.DEBUG_TOWER_FAR_LEFT:
                 x = 0
             else:
-                x = xRange
+                x = range
         else:
-            x = self.randomNumGen.randint(0, xRange)
-        x = x - int(xRange / 2.0)
+            x = self.randomNumGen.randint(0, range)
+        x = x - int(range / 2.0)
         if base.wantMinigameDifficulty:
             diff = self.getDifficulty()
             scale = 0.5 + 0.5 * diff

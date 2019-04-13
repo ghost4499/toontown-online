@@ -1,14 +1,19 @@
-from pandac.PandaModules import *
-from toontown.toonbase.ToonBaseGlobal import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors
+    from otp.distributed import PythonUtil
+else:
+    from pandac.PandaModules import *
+    from direct.showbase import PythonUtil
+
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from direct.interval.IntervalGlobal import *
-from direct.fsm import ClassicFSM, State
-from direct.fsm import State
-from direct.fsm import StateData
+from direct.fsm import ClassicFSM, State, StateData
 from toontown.launcher import DownloadForceAcknowledge
+from toontown.toonbase.ToonBaseGlobal import *
 from toontown.toonbase import TTLocalizer
-from direct.showbase import PythonUtil
+
 
 class Elevator(StateData.StateData):
 

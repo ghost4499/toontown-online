@@ -436,7 +436,7 @@ class Kart(NodePath, ShadowCaster.ShadowCaster):
 
     def setDNA(self, dna):
         if self.kartDNA != [-1] * getNumFields():
-            for field in xrange(len(self.kartDNA)):
+            for field in range(len(self.kartDNA)):
                 if dna[field] != self.kartDNA[field]:
                     self.updateDNAField(field, dna[field])
 

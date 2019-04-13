@@ -557,12 +557,12 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         return
 
     def showPieces(self):
-        xRange = 0.3
+        range = 0.3
         for piece in self.piePieces:
-            piece.setPos(randFloat(-xRange, xRange), randFloat(-0.1, 3.5), randFloat(-0.9, 0.9))
+            piece.setPos(randFloat(-range, range), randFloat(-0.1, 3.5), randFloat(-0.9, 0.9))
             piece.setScale(randFloat(1.1, 2.0), 1, randFloat(1.1, 2.0))
             piece.show()
-            xRange += 2.5 / self.numPieChunks
+            range += 2.5 / self.numPieChunks
 
         for piece in range(self.numPieChunks):
             self.pieSlideSpeed[piece] = randFloat(0.0, 0.2)

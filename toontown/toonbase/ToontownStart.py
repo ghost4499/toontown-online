@@ -1,4 +1,10 @@
-import __builtin__
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    import builtins as __builtin__
+else:
+    from pandac.PandaModules import *
+    import __builtin__
 
 class game:
     name = 'toontown'
@@ -8,9 +14,7 @@ class game:
 __builtin__.game = game()
 import time
 import os
-import sys
 import random
-import __builtin__
 try:
     launcher
 except:
@@ -20,29 +24,27 @@ except:
 
 launcher.setRegistry('EXIT_PAGE', 'normal')
 pollingDelay = 0.5
-print 'ToontownStart: Polling for game2 to finish...'
+print('ToontownStart: Polling for game2 to finish...')
 while not launcher.getGame2Done():
     time.sleep(pollingDelay)
 
-print 'ToontownStart: Game2 is finished.'
-print 'ToontownStart: Starting the game.'
-from pandac.PandaModules import *
+print('ToontownStart: Game2 is finished.')
+print('ToontownStart: Starting the game.')
 if launcher.isDummy():
     http = HTTPClient()
 else:
     http = launcher.http
-tempLoader = PandaLoader()
+tempLoader = Loader()
 backgroundNode = tempLoader.loadSync(Filename('phase_3/models/gui/loading-background'))
 from direct.gui import DirectGuiGlobals
-print 'ToontownStart: setting default font'
+print('ToontownStart: setting default font')
 import ToontownGlobals
 DirectGuiGlobals.setDefaultFontFunc(ToontownGlobals.getInterfaceFont)
 launcher.setPandaErrorCode(7)
 import ToonBase
 ToonBase.ToonBase()
-from pandac.PandaModules import *
 if base.win == None:
-    print 'Unable to open window; aborting.'
+    print('Unable to open window; aborting.')
     sys.exit()
 launcher.setPandaErrorCode(0)
 launcher.setPandaWindowOpen()
@@ -66,7 +68,7 @@ if base.musicManagerIsValid:
         music.setLoop(1)
         music.setVolume(0.9)
         music.play()
-    print 'ToontownStart: Loading default gui sounds'
+    print('ToontownStart: Loading default gui sounds')
     DirectGuiGlobals.setDefaultRolloverSound(base.loadSfx('phase_3/audio/sfx/GUI_rollover.mp3'))
     DirectGuiGlobals.setDefaultClickSound(base.loadSfx('phase_3/audio/sfx/GUI_create_toon_fwd.mp3'))
 else:
@@ -74,7 +76,7 @@ else:
 import ToontownLoader
 from direct.gui.DirectGui import *
 serverVersion = base.config.GetString('server-version', 'no_version_set')
-print 'ToontownStart: serverVersion: ', serverVersion
+print('ToontownStart: serverVersion: ', serverVersion)
 version = OnscreenText(serverVersion, pos=(-1.3, -0.975), scale=0.06, fg=Vec4(0, 0, 1, 0.6), align=TextNode.ALeft)
 loader.beginBulkLoad('init', TTLocalizer.LoaderLabel, 138, 0, TTLocalizer.TIP_NONE)
 from ToonBaseGlobal import *
@@ -105,7 +107,7 @@ __builtin__.loader = base.loader
 autoRun = ConfigVariableBool('toontown-auto-run', 1)
 if autoRun and launcher.isDummy() and (not Thread.isTrueThreads() or __name__ == '__main__'):
     try:
-        run()
+        base.run()
     except SystemExit:
         raise
     except:

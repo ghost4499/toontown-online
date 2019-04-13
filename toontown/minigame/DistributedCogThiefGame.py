@@ -171,7 +171,7 @@ class DistributedCogThiefGame(DistributedMinigame):
         toonSD.enter()
         toonSD.fsm.request('normal')
         self.stopGameWalk()
-        for cogIndex in xrange(self.getNumCogs()):
+        for cogIndex in range(self.getNumCogs()):
             suit = self.cogInfo[cogIndex]['suit'].suit
             pos = self.cogInfo[cogIndex]['pos']
             suit.reparentTo(self.gameBoard)
@@ -181,12 +181,12 @@ class DistributedCogThiefGame(DistributedMinigame):
             self.toonHitTracks[avId] = Wait(0.1)
 
         self.toonRNGs = []
-        for i in xrange(self.numPlayers):
+        for i in range(self.numPlayers):
             self.toonRNGs.append(RandomNumGen.RandomNumGen(self.randomNumGen))
 
         self.sndTable = {'hitBySuit': [None] * self.numPlayers,
          'falling': [None] * self.numPlayers}
-        for i in xrange(self.numPlayers):
+        for i in range(self.numPlayers):
             self.sndTable['hitBySuit'][i] = base.loadSfx('phase_4/audio/sfx/MG_Tag_C.mp3')
             self.sndTable['falling'][i] = base.loadSfx('phase_4/audio/sfx/MG_cannon_whizz.mp3')
 
@@ -350,7 +350,7 @@ class DistributedCogThiefGame(DistributedMinigame):
             base.mouseInterfaceNode.setRotateSpeed(ToontownGlobals.ToonRotateSpeed * 4)
 
     def initCogInfo(self):
-        for cogIndex in xrange(self.getNumCogs()):
+        for cogIndex in range(self.getNumCogs()):
             self.cogInfo[cogIndex] = {'pos': Point3(CTGG.CogStartingPositions[cogIndex]),
              'goal': CTGG.NoGoal,
              'goalId': CTGG.InvalidGoalId,
@@ -363,7 +363,7 @@ class DistributedCogThiefGame(DistributedMinigame):
          'ac',
          'bc',
          'ms']
-        for suitIndex in xrange(self.getNumCogs()):
+        for suitIndex in range(self.getNumCogs()):
             st = self.randomNumGen.choice(suitTypes)
             suit = CogThief.CogThief(suitIndex, st, self, self.getCogSpeed())
             self.cogInfo[suitIndex]['suit'] = suit

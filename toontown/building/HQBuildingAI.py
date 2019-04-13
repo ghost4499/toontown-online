@@ -1,6 +1,12 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import DistributedDoorAI, DistributedHQInteriorAI, FADoorCodes, DoorTypes
+else:
+    from pandac.PandaModules import *
+    import DistributedDoorAI, DistributedHQInteriorAI, FADoorCodes, DoorTypes
+
 from direct.directnotify import DirectNotifyGlobal
-import DistributedDoorAI, DistributedHQInteriorAI, FADoorCodes, DoorTypes
 from toontown.toon import NPCToons
 from toontown.quest import Quests
 

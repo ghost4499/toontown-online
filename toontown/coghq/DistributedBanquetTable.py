@@ -156,7 +156,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
 
     def setDinerInfo(self, hungryDurations, eatingDurations, dinerLevels):
         self.dinerInfo = {}
-        for i in xrange(len(hungryDurations)):
+        for i in range(len(hungryDurations)):
             hungryDur = hungryDurations[i]
             eatingDur = eatingDurations[i]
             dinerLevel = dinerLevels[i]
@@ -180,7 +180,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         self.pitcherMoveSfx = base.loadSfx('phase_4/audio/sfx/MG_cannon_adjust.mp3')
 
     def setupDiners(self):
-        for i in xrange(self.numDiners):
+        for i in range(self.numDiners):
             newDiner = self.createDiner(i)
             self.diners[i] = newDiner
             self.dinerStatus[i] = self.HUNGRY
@@ -226,7 +226,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         return diner
 
     def setupChairCols(self):
-        for i in xrange(self.numDiners):
+        for i in range(self.numDiners):
             chairCol = self.tableGroup.find('**/collision_chair_%d' % (i + 1))
             colName = 'ChairCol-%d-%d' % (self.index, i)
             chairCol.setTag('chairIndex', str(i))
@@ -278,7 +278,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
     def removeFoodModel(self, chairIndex):
         serviceLoc = self.serviceLocs.get(chairIndex)
         if serviceLoc:
-            for i in xrange(serviceLoc.getNumChildren()):
+            for i in range(serviceLoc.getNumChildren()):
                 serviceLoc.getChild(0).removeNode()
 
     def changeDinerToEating(self, chairIndex):
@@ -415,7 +415,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
 
     def getNotDeadInfo(self):
         notDeadList = []
-        for i in xrange(self.numDiners):
+        for i in range(self.numDiners):
             if self.dinerStatus[i] != self.DEAD:
                 notDeadList.append((self.index, i, 12))
 
@@ -428,7 +428,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         pass
 
     def enterInactive(self):
-        for chairIndex in xrange(self.numDiners):
+        for chairIndex in range(self.numDiners):
             indicator = self.dinerStatusIndicators.get(chairIndex)
             if indicator:
                 indicator.request('Inactive')
@@ -465,17 +465,17 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
 
     def prepareForPhaseFour(self):
         if not self.preparedForPhaseFour:
-            for i in xrange(8):
+            for i in range(8):
                 chair = self.tableGroup.find('**/chair_%d' % (i + 1))
                 if not chair.isEmpty():
                     chair.hide()
                 colChairs = self.tableGroup.findAllMatches('**/ChairCol*')
-                for i in xrange(colChairs.getNumPaths()):
+                for i in range(colChairs.getNumPaths()):
                     col = colChairs.getPath(i)
                     col.stash()
 
                 colChairs = self.tableGroup.findAllMatches('**/collision_chair*')
-                for i in xrange(colChairs.getNumPaths()):
+                for i in range(colChairs.getNumPaths()):
                     col = colChairs.getPath(i)
                     col.stash()
 

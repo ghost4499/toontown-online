@@ -56,7 +56,7 @@ class DistributedCCharBaseAI(DistributedAvatarAI.DistributedAvatarAI):
             if msg is SetChat:
                 length = rrange(1024)
                 s = ''
-                for i in xrange(length):
+                for i in range(length):
                     s += chr(rrange(1 << 8))
 
                 self.setNearbyAvatarChat(s)

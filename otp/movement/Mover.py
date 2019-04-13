@@ -1,9 +1,16 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from otp.distributed import PythonUtil
+    import builtins as __builtin__
+else:
+    from pandac.PandaModules import *
+    from direct.showbase import PythonUtil
+    import __builtin__
+
 from libotp import CMover
 from direct.directnotify import DirectNotifyGlobal
 from otp.movement.PyVec3 import PyVec3
-from direct.showbase import PythonUtil
-import __builtin__
 
 class Mover(CMover):
     notify = DirectNotifyGlobal.directNotify.newCategory('Mover')
@@ -52,7 +59,7 @@ class Mover(CMover):
         if Mover.Profile and not profile:
 
             def func(doMove = self.move):
-                for i in xrange(10000):
+                for i in range(10000):
                     doMove(dt, profile=1)
 
             __builtin__.func = func

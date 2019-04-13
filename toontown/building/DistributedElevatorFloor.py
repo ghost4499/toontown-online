@@ -1,13 +1,21 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .ElevatorConstants import *
+    from .ElevatorUtils import *
+    from . import DistributedElevatorFSM
+else:
+    from pandac.PandaModules import *
+    from ElevatorConstants import *
+    from ElevatorUtils import *
+    import DistributedElevatorFSM
+
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-from ElevatorConstants import *
-from ElevatorUtils import *
-import DistributedElevatorFSM
+
 from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
-from direct.fsm import ClassicFSM
-from direct.fsm import State
+from direct.fsm import ClassicFSM, State
 from toontown.hood import ZoneUtil
 from toontown.toonbase import TTLocalizer
 from direct.fsm.FSM import FSM

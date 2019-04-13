@@ -381,7 +381,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
         self.recordHoleInOne()
         self.recordCourseUnderPar()
         trophiesList = []
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             avId = self.avIdList[index]
             if avId in self.newTrophies:
                 oneTrophyList = self.newTrophies[avId]
@@ -393,7 +393,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
             trophiesList.append([])
 
         holeBestList = []
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             avId = self.avIdList[index]
             if avId in self.newHoleBest:
                 oneTrophyList = self.newHoleBest[avId]
@@ -405,7 +405,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
             holeBestList.append([])
 
         courseBestList = []
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             avId = self.avIdList[index]
             if avId in self.newCourseBest:
                 oneTrophyList = self.newCourseBest[avId]
@@ -417,7 +417,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
             courseBestList.append([])
 
         cupList = []
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             avId = self.avIdList[index]
             if avId in self.newCups:
                 oneCupList = self.newCups[avId]
@@ -724,7 +724,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
             winnerAvId = random.choice(tiedForFirst)
             winnerIndex = self.avIdList.index(winnerAvId)
             self.winnerByTieBreak = winnerAvId
-            for index in xrange(len(self.rankings)):
+            for index in range(len(self.rankings)):
                 if self.rankings[index] > 0 and index != winnerIndex:
                     self.rankings[index] += 1
 
@@ -747,7 +747,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
                 endingTrophies = GolfGlobals.calcTrophyListFromHistory(endingHistory)
                 av.b_setGolfHistory(endingHistory)
                 newTrophies = []
-                for index in xrange(len(oldTrophies)):
+                for index in range(len(oldTrophies)):
                     if not oldTrophies[index] and endingTrophies[index]:
                         self.notify.debug('New Trophy %d' % index)
                         self.air.writeServerEvent('golf_trophy', avId, '%s' % index)
@@ -768,7 +768,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
                 oldCups = GolfGlobals.calcCupListFromHistory(oldHistory)
                 endingCups = GolfGlobals.calcCupListFromHistory(endingHistory)
                 newCups = []
-                for index in xrange(len(oldCups)):
+                for index in range(len(oldCups)):
                     if not oldCups[index] and endingCups[index]:
                         self.notify.debug('New Trophy %d' % index)
                         newCups.append(True)
@@ -791,7 +791,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
                 av.b_setGolfHoleBest(endingHoleBest)
                 newHoleBest = []
                 longestHoleBestList = 0
-                for index in xrange(len(oldHoleBest)):
+                for index in range(len(oldHoleBest)):
                     if endingHoleBest[index] < oldHoleBest[index]:
                         self.notify.debug('New HoleBest %d' % index)
                         newHoleBest.append(True)
@@ -813,7 +813,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
                 av.b_setGolfCourseBest(endingCourseBest)
                 newCourseBest = []
                 longestCourseBestList = 0
-                for index in xrange(len(oldCourseBest)):
+                for index in range(len(oldCourseBest)):
                     if endingCourseBest[index] < oldCourseBest[index]:
                         self.notify.debug('New CourseBest %d' % index)
                         newCourseBest.append(True)
@@ -951,7 +951,7 @@ class DistributedGolfCourseAI(DistributedObjectAI.DistributedObjectAI, FSM):
         stillPlaying = self.getStillPlayingAvIds()
         for avId in stillPlaying:
             scoreList = self.scores[avId]
-            for holeIndex in xrange(len(scoreList)):
+            for holeIndex in range(len(scoreList)):
                 strokes = scoreList[holeIndex]
                 if strokes == 1:
                     holeId = self.holeIds[holeIndex]

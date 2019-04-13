@@ -107,7 +107,7 @@ class DistributedPetProxyAI(DistributedObjectAI.DistributedObjectAI):
         self.traitList = traitList
 
     def __generateDistTraitFuncs(self):
-        for i in xrange(PetTraits.PetTraits.NumTraits):
+        for i in range(PetTraits.PetTraits.NumTraits):
             traitName = PetTraits.getTraitNames()[i]
             getterName = self.getSetterName(traitName, 'get')
             b_setterName = self.getSetterName(traitName, 'b_set')
@@ -358,7 +358,7 @@ class DistributedPetProxyAI(DistributedObjectAI.DistributedObjectAI):
         DistributedObjectAI.DistributedObjectAI.generate(self)
         self.traits = PetTraits.PetTraits(self.traitSeed, self.safeZone)
         print self.traits.traits
-        for i in xrange(len(self.traitList)):
+        for i in range(len(self.traitList)):
             value = self.traitList[i]
             if value == 0.0:
                 traitName = PetTraits.getTraitNames()[i]

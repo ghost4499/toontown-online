@@ -1,5 +1,12 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import FADoorCodes, DoorTypes
+else:
+    from pandac.PandaModules import *
+    import FADoorCodes, DoorTypes
+
 from toontown.toonbase.ToonBaseGlobal import *
-from pandac.PandaModules import *
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
 from toontown.toonbase import ToontownGlobals
@@ -9,9 +16,7 @@ from direct.distributed import DistributedObject
 from toontown.hood import ZoneUtil
 from toontown.suit import Suit
 from toontown.distributed import DelayDelete
-import FADoorCodes
 from direct.task.Task import Task
-import DoorTypes
 from toontown.toontowngui import TTDialog
 from toontown.toonbase import TTLocalizer
 from toontown.toontowngui import TeaserPanel

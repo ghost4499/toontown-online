@@ -1,21 +1,24 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import Movie, MovieUtil, BattleProps, BattleParticles
+    from .BattleBase import *
+else:
+    from pandac.PandaModules import *
+    import Movie, MovieUtil, BattleProps, BattleParticles
+    from BattleBase import *
+
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.interval.IntervalGlobal import *
-from BattleBase import *
 from direct.distributed.ClockDelta import *
 from toontown.toonbase import ToontownBattleGlobals
 from direct.distributed import DistributedNode
 from direct.fsm import ClassicFSM, State
-from direct.fsm import State
 from direct.task.Task import Task
 from direct.directnotify import DirectNotifyGlobal
-import Movie
-import MovieUtil
 from toontown.suit import Suit
 from direct.actor import Actor
-import BattleProps
 from direct.particles import ParticleEffect
-import BattleParticles
 from toontown.hood import ZoneUtil
 from toontown.distributed import DelayDelete
 from toontown.toon import TTEmote

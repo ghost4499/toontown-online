@@ -1,7 +1,12 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.interval.IntervalGlobal import *
 from direct.distributed import PyDatagram
 from direct.distributed.MsgTypes import MsgName2Id
-from pandac.PandaModules import *
 from direct.distributed import DistributedObject
 from toontown.toon import DistributedToon
 from direct.directnotify import DirectNotifyGlobal
@@ -11,7 +16,6 @@ from otp.avatar import Avatar
 from otp.chat import ChatManager
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownBattleGlobals
-import string
 from toontown.toon import Toon
 from direct.showbase import PythonUtil
 from toontown.suit import DistributedSuitPlanner
@@ -25,6 +29,7 @@ from toontown.golf import GolfGlobals
 from toontown.distributed import ToontownDistrictStats
 from toontown.coderedemption import TTCodeRedemptionConsts
 from toontown.rpc import AwardManagerConsts
+import string
 if base.wantKarts:
     from toontown.racing.KartDNA import *
     from toontown.racing.KartShopGui import *

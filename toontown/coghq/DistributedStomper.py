@@ -340,9 +340,9 @@ class DistributedStomper(DistributedCrusherEntity.DistributedCrusherEntity):
         if self.style == 'vertical':
             tPos = base.localAvatar.getPos(self.rotateNode)
             zRange = self.headScale[2]
-            xRange = self.headScale[0]
+            range = self.headScale[0]
             yRange = 5
-            if tPos[2] < zRange and tPos[2] > -zRange and tPos[0] < xRange and tPos[0] > -xRange and tPos[1] < yRange / 10.0 and tPos[1] > -yRange:
+            if tPos[2] < zRange and tPos[2] > -zRange and tPos[0] < range and tPos[0] > -range and tPos[1] < yRange / 10.0 and tPos[1] > -yRange:
                 self.level.b_setOuch(self.damage, 'Squish')
                 base.localAvatar.setZ(self.getZ(render) + 0.025)
 

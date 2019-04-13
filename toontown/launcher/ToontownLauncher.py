@@ -7,7 +7,7 @@ ltime = 1 and time.localtime()
 logSuffix = '%02d%02d%02d_%02d%02d%02d' % (ltime[0] - 2000,  ltime[1], ltime[2],
                                            ltime[3], ltime[4], ltime[5])
 
-logfile = 'toontownD-' + logSuffix + '.log'
+logfile = 'toontown-' + logSuffix + '.log'
 
 class LogAndOutput:
     def __init__(self, orig, log):
@@ -33,14 +33,18 @@ sys.stderr = logErr
 print('\n\nStarting Toontown...')
 
 if 1:
-    print 'Current time: ' + time.asctime(time.localtime(time.time())) + ' ' + time.tzname[0]
-    print 'sys.path = ', sys.path
-    print 'sys.argv = ', sys.argv
+    print('Current time: ' + time.asctime(time.localtime(time.time())) + ' ' + time.tzname[0])
+    print('sys.path = ', sys.path)
+    print('sys.argv = ', sys.argv)
 
 from otp.launcher.LauncherBase import LauncherBase
 from otp.otpbase import OTPLauncherGlobals
-from pandac.libpandaexpressModules import *
 from toontown.toonbase import TTLocalizer
+
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
 
 class ToontownLauncher(LauncherBase):
     GameName = 'Toontown'

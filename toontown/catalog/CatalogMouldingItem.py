@@ -1,4 +1,11 @@
-from CatalogSurfaceItem import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import Texture
+    from .CatalogSurfaceItem import *
+else:
+    from pandac.PandaModules import Texture
+    from CatalogSurfaceItem import *
+
 MTTextureName = 0
 MTColor = 1
 MTBasePrice = 2
@@ -68,7 +75,6 @@ class CatalogMouldingItem(CatalogSurfaceItem):
         return MouldingTypes[self.patternIndex][MTBasePrice]
 
     def loadTexture(self):
-        from pandac.PandaModules import Texture
         filename = MouldingTypes[self.patternIndex][MTTextureName]
         texture = loader.loadTexture(filename)
         texture.setMinfilter(Texture.FTLinearMipmapLinear)

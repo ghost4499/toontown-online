@@ -1,4 +1,11 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import BoardingGroupShow
+else:
+    from pandac.PandaModules import *
+    import BoardingGroupShow
+
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownGlobals
@@ -12,7 +19,6 @@ from toontown.toontowngui import TTDialog
 from toontown.hood import ZoneUtil
 from toontown.toontowngui import TeaserPanel
 from direct.interval.IntervalGlobal import *
-import BoardingGroupShow
 
 class DistributedBoardingParty(DistributedObject.DistributedObject, BoardingPartyBase.BoardingPartyBase):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedBoardingParty')

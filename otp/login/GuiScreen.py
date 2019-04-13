@@ -1,9 +1,14 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from otp.otpbase import OTPGlobals
+from otp.otpbase import OTPLocalizer
 from direct.gui.DirectGui import *
 from otp.otpgui import OTPDialog
 from direct.directnotify import DirectNotifyGlobal
-from otp.otpbase import OTPLocalizer
 from direct.task.Task import Task
 
 class GuiScreen:
@@ -28,14 +33,14 @@ class GuiScreen:
         self.__startFrameStartTask()
         self.userGlobalFocusHandler = globalFocusHandler
         self.focusHandlerAbsorbCounts = {}
-        for i in xrange(len(self.focusList)):
+        for i in range(len(self.focusList)):
             item = self.focusList[i]
             if isinstance(item, DirectEntry):
                 self.focusHandlerAbsorbCounts[item] = 0
 
         self.userFocusHandlers = {}
         self.userCommandHandlers = {}
-        for i in xrange(len(self.focusList)):
+        for i in range(len(self.focusList)):
             item = self.focusList[i]
             if isinstance(item, DirectEntry):
                 self.userFocusHandlers[item] = (item['focusInCommand'], item['focusInExtraArgs'])
@@ -50,7 +55,7 @@ class GuiScreen:
                 item['extraArgs'] = [i]
 
         self.enterPressHandlers = {}
-        for i in xrange(len(self.focusList)):
+        for i in range(len(self.focusList)):
             item = self.focusList[i]
             behavior = enterPressBehavior
             if overrides.has_key(item):

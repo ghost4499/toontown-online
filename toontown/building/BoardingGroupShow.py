@@ -1,4 +1,9 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
 from direct.task.Task import Task
@@ -179,7 +184,7 @@ class BoardingGroupShow:
         base.cTrav.traverse(render)
         queue.sortEntries()
         if queue.getNumEntries():
-            for entryNum in xrange(queue.getNumEntries()):
+            for entryNum in range(queue.getNumEntries()):
                 entry = queue.getEntry(entryNum)
                 hitObject = entry.getIntoNodePath()
                 if hitObject.getNetTag('pieCode') != '3':

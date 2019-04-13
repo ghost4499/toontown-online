@@ -949,7 +949,7 @@ class PathDropPlacer(DropPlacer):
          [-1, 0],
          [-1, -1]]
         self.paths = []
-        for i in xrange(self.numPlayers):
+        for i in range(self.numPlayers):
             dir = self.rng.randrange(0, len(self.moves))
             col, row = self.getRandomColRow()
             path = {'direction': dir,

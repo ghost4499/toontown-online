@@ -1,19 +1,21 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import CatalogItem, CatalogInvalidItem, CatalogFurnitureItem, CatalogItemPanel, CatalogItemTypes
+else:
+    from pandac.PandaModules import *
+    import CatalogItem, CatalogInvalidItem, CatalogFurnitureItem, CatalogItemPanel, CatalogItemTypes
+
+from direct.actor import Actor
+from direct.directnotify import DirectNotifyGlobal
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from direct.gui.DirectScrolledList import *
 from toontown.toonbase import ToontownGlobals
 from toontown.toontowngui import TTDialog
-import CatalogItem
-import CatalogInvalidItem
-import CatalogFurnitureItem
 from toontown.toonbase import TTLocalizer
-import CatalogItemPanel
-import CatalogItemTypes
-from direct.actor import Actor
-import random
 from toontown.toon import DistributedToon
-from direct.directnotify import DirectNotifyGlobal
+import random
+
 NUM_CATALOG_ROWS = 3
 NUM_CATALOG_COLS = 2
 CatalogPanelCenters = [[Point3(-0.95, 0, 0.91), Point3(-0.275, 0, 0.91)], [Point3(-0.95, 0, 0.275), Point3(-0.275, 0, 0.275)], [Point3(-0.95, 0, -0.4), Point3(-0.275, 0, -0.4)]]
@@ -345,7 +347,7 @@ class CatalogScreen(DirectFrame):
     def adjustForSound(self):
         numEmoteItems = 0
         emotePanels = []
-        for visIndex in xrange(len(self.visiblePanels)):
+        for visIndex in range(len(self.visiblePanels)):
             panel = self.visiblePanels[visIndex]
             item = panel['item']
             catalogType = item.getTypeCode()

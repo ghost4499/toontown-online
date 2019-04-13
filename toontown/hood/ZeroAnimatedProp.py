@@ -97,7 +97,7 @@ class ZeroAnimatedProp(GenericAnimatedProp.GenericAnimatedProp, FSM.FSM):
         result = self.curPhase
         if base.config.GetBool('anim-props-randomized', True):
             pairs = []
-            for i in xrange(self.curPhase + 1):
+            for i in range(self.curPhase + 1):
                 pairs.append((math.pow(2, i), i))
 
             sum = math.pow(2, self.curPhase + 1) - 1

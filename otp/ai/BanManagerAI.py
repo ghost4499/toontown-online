@@ -1,6 +1,11 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import HTTPClient, RamFile
+else:
+    from pandac.PandaModules import HTTPClient, RamFile
+
 import urllib
 import os
-from pandac.PandaModules import HTTPClient, Ramfile
 from direct.directnotify import DirectNotifyGlobal
 
 class BanManagerAI:

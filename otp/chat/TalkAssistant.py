@@ -1,11 +1,15 @@
-import string
 import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
+import string
 from direct.showbase import DirectObject
 from otp.otpbase import OTPLocalizer
 from direct.directnotify import DirectNotifyGlobal
 from otp.otpbase import OTPGlobals
 from otp.speedchat import SCDecoders
-from pandac.PandaModules import *
 from otp.chat.TalkMessage import TalkMessage
 from otp.chat.TalkHandle import TalkHandle
 import time
@@ -250,7 +254,10 @@ class TalkAssistant(DirectObject.DirectObject):
         print 'execMessage %s' % message
         if not TalkAssistant.ExecNamespace:
             TalkAssistant.ExecNamespace = {}
-            exec 'from pandac.PandaModules import *' in globals(), self.ExecNamespace
+            if sys.version_info >= (3, 0):
+                exec 'from panda3d.core import *' in globals(), self.ExecNamespace
+            else:
+                exec 'from pandac.PandaModules import *' in globals(), self.ExecNamespace
             self.importExecNamespace()
         try:
             if not isClient():

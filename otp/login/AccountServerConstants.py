@@ -1,8 +1,14 @@
-from pandac.PandaModules import *
-from RemoteValueSet import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .RemoteValueSet import *
+    from . import TTAccount, HTTPUtil
+else:
+    from pandac.PandaModules import *
+    from RemoteValueSet import *
+    import TTAccount, HTTPUtil
+
 from direct.directnotify import DirectNotifyGlobal
-import TTAccount
-import HTTPUtil
 
 class AccountServerConstants(RemoteValueSet):
     notify = DirectNotifyGlobal.directNotify.newCategory('AccountServerConstants')

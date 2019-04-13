@@ -130,7 +130,7 @@ class DistributedIceGameAI(DistributedMinigameAI.DistributedMinigameAI):
             divisor += 1
             oneClientEndingPositions = self.avatarEndingPositions[avId]
             avIndex = self.avIdList.index(avId)
-            for index in xrange(len(oneClientEndingPositions)):
+            for index in range(len(oneClientEndingPositions)):
                 pos = oneClientEndingPositions[index]
                 averagePos[index] += Point3(pos[0], pos[1], pos[2])
                 self.notify.debug('index = %d averagePos = %s' % (index, averagePos))
@@ -177,7 +177,7 @@ class DistributedIceGameAI(DistributedMinigameAI.DistributedMinigameAI):
         sortedByDistance.sort(cmp=compareDistance)
         self.scoresAsList = []
         totalPointsAdded = 0
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             pos = Point3(*self.finalEndingPositions[index])
             pos.setZ(0)
             length = pos.length()
@@ -186,7 +186,7 @@ class DistributedIceGameAI(DistributedMinigameAI.DistributedMinigameAI):
             self.notify.debug('length = %s points=%s avId=%d' % (length, points, avId))
             avId = self.avIdList[index]
             bonusIndex = 0
-            for sortIndex in xrange(len(sortedByDistance)):
+            for sortIndex in range(len(sortedByDistance)):
                 if sortedByDistance[sortIndex][0] == avId:
                     bonusIndex = sortIndex
 
@@ -347,7 +347,7 @@ class DistributedIceGameAI(DistributedMinigameAI.DistributedMinigameAI):
 
     def checkScores(self):
         self.scoresAsList = []
-        for index in xrange(len(self.avIdList)):
+        for index in range(len(self.avIdList)):
             avId = self.avIdList[index]
             if self.scoreDict[avId] < 0:
                 self.scoreDict[avId] = 1

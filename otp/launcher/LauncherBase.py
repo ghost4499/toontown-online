@@ -1,9 +1,12 @@
 import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 import os
 import time
 import string
-import __builtin__
-from pandac.libpandaexpressModules import *
 from direct.showbase.MessengerGlobal import *
 from direct.showbase.DirectObject import DirectObject
 from direct.showbase.EventManagerGlobal import *
@@ -132,32 +135,32 @@ class LauncherBase(DirectObject):
             os.system('cat /proc/cpuinfo >>' + logfile)
             os.system('cat /proc/meminfo >>' + logfile)
             os.system('/sbin/ifconfig -a >>' + logfile)
-        print '\n\nStarting %s...' % self.GameName
-        print 'Current time: ' + time.asctime(time.localtime(time.time())) + ' ' + time.tzname[0]
-        print 'sys.path = ', sys.path
-        print 'sys.argv = ', sys.argv
+        print('\n\nStarting %s...' % self.GameName)
+        print('Current time: ' + time.asctime(time.localtime(time.time())) + ' ' + time.tzname[0])
+        print('sys.path = ', sys.path)
+        print('sys.argv = ', sys.argv)
         if len(sys.argv) >= self.ArgCount:
             Configrc_args = sys.argv[self.ArgCount - 1]
-            print "generating configrc using: '" + Configrc_args + "'"
+            print("generating configrc using: '" + Configrc_args + "'")
         else:
             Configrc_args = ''
-            print 'generating standard configrc'
+            print('generating standard configrc')
         if os.environ.has_key('PRC_EXECUTABLE_ARGS'):
-            print 'PRC_EXECUTABLE_ARGS is set to: ' + os.environ['PRC_EXECUTABLE_ARGS']
-            print 'Resetting PRC_EXECUTABLE_ARGS'
+            print('PRC_EXECUTABLE_ARGS is set to: ' + os.environ['PRC_EXECUTABLE_ARGS'])
+            print('Resetting PRC_EXECUTABLE_ARGS')
         ExecutionEnvironment.setEnvironmentVariable('PRC_EXECUTABLE_ARGS', '-stdout ' + Configrc_args)
         if os.environ.has_key('CONFIG_CONFIG'):
-            print 'CONFIG_CONFIG is set to: ' + os.environ['CONFIG_CONFIG']
-            print 'Resetting CONFIG_CONFIG'
+            print('CONFIG_CONFIG is set to: ' + os.environ['CONFIG_CONFIG'])
+            print('Resetting CONFIG_CONFIG')
         os.environ['CONFIG_CONFIG'] = ':_:configdir_.:configpath_:configname_Configrc.exe:configexe_1:configargs_-stdout ' + Configrc_args
         cpMgr = ConfigPageManager.getGlobalPtr()
         cpMgr.reloadImplicitPages()
         launcherConfig = getConfigExpress()
         __builtin__.config = launcherConfig
         if config.GetBool('log-private-info', 0):
-            print 'os.environ = ', os.environ
+            print('os.environ = ', os.environ)
         elif '__COMPAT_LAYER' in os.environ:
-            print '__COMPAT_LAYER = %s' % (os.environ['__COMPAT_LAYER'],)
+            print('__COMPAT_LAYER = %s' % (os.environ['__COMPAT_LAYER'],))
         self.miniTaskMgr = MiniTaskManager()
         self.VerifyFiles = self.getVerifyFiles()
         self.setServerVersion(launcherConfig.GetString('server-version', 'no_version_set'))
@@ -917,7 +920,7 @@ class LauncherBase(DirectObject):
 
     def getProgressSum(self, phase):
         sum = 0
-        for i in xrange(0, len(self.linesInProgress)):
+        for i in range(0, len(self.linesInProgress)):
             if self.linesInProgress[i].find(phase) > -1:
                 nameSizeTuple = self.linesInProgress[i].split()
                 numSize = nameSizeTuple[1].split('L')

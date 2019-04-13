@@ -1,8 +1,13 @@
-import string
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import NSError, TextEncoder, TextNode
+else:
+    from pandac.PandaModules import NSError, TextEncoder, TextNode
+
 from otp.otpbase import OTPLocalizer
 from direct.directnotify import DirectNotifyGlobal
-from pandac.PandaModules import NSError
-from pandac.PandaModules import TextEncoder, TextNode
+import string
+
 notify = DirectNotifyGlobal.directNotify.newCategory('NameCheck')
 
 def filterString(str, filter):
@@ -224,7 +229,7 @@ def checkName(name, otherCheckFuncs = [], font = None):
         letters = justLetters(name)
         if len(letters) > 2:
             upperLetters = TextEncoder().decodeText(TextEncoder.upper(TextEncoder().encodeWtext(letters)))
-            for i in xrange(len(upperLetters)):
+            for i in range(len(upperLetters)):
                 if not upperLetters[0].isupper():
                     return
 
@@ -325,7 +330,7 @@ def checkName(name, otherCheckFuncs = [], font = None):
 
 severity = notify.getSeverity()
 notify.setSeverity(NSError)
-for i in xrange(32):
+for i in range(32):
     pass
 
 for c in '!"#$%&()*+/:;<=>?@[\\]^_`{|}~':

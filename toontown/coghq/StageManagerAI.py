@@ -34,7 +34,7 @@ class StageManagerAI(DirectObject.DirectObject):
         for avId in players:
             if bboard.has('stageRoom-%s' % avId):
                 roomId = bboard.get('stageRoom-%s' % avId)
-                for i in xrange(numFloors):
+                for i in range(numFloors):
                     layout = StageLayout.StageLayout(stageId, i)
                     if roomId in layout.getRoomIds():
                         floor = i

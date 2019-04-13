@@ -50,7 +50,7 @@ class TTSCBoardingMenu(SCMenu):
         except:
             return
 
-        for count in xrange(len(BoardingMenuGuide)):
+        for count in range(len(BoardingMenuGuide)):
             section = BoardingMenuGuide[count]
             if section[0] == -1:
                 for phrase in section[1]:

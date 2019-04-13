@@ -1,11 +1,17 @@
-import CatalogItem
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import CatalogItem
+else:
+    from pandac.PandaModules import *
+    import CatalogItem
+
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from otp.otpbase import OTPLocalizer
 from direct.interval.IntervalGlobal import *
 from toontown.estate import GardenGlobals
 from direct.actor import Actor
-from pandac.PandaModules import NodePath
 
 class CatalogGardenItem(CatalogItem.CatalogItem):
     sequenceNumber = 0

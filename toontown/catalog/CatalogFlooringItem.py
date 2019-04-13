@@ -1,4 +1,10 @@
-from CatalogSurfaceItem import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import Texture
+    from .CatalogSurfaceItem import *
+else:
+    from pandac.PandaModules import Texture
+    from CatalogSurfaceItem import *
 FTTextureName = 0
 FTColor = 1
 FTBasePrice = 2
@@ -83,7 +89,6 @@ class CatalogFlooringItem(CatalogSurfaceItem):
         return FlooringTypes[self.patternIndex][FTBasePrice]
 
     def loadTexture(self):
-        from pandac.PandaModules import Texture
         filename = FlooringTypes[self.patternIndex][FTTextureName]
         texture = loader.loadTexture(filename)
         texture.setMinfilter(Texture.FTLinearMipmapLinear)

@@ -1,13 +1,17 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import DistributedAvatar, Avatar
+else:
+    from pandac.PandaModules import *
+    import DistributedAvatar, Avatar
+
 from libotp import Nametag, WhisperPopup
 from direct.gui.DirectGui import *
 from direct.showbase.PythonUtil import *
 from direct.interval.IntervalGlobal import *
 from direct.showbase.InputStateGlobal import inputState
-from pandac.PandaModules import *
-import Avatar
 from direct.controls import ControlManager
-import DistributedAvatar
 from direct.task import Task
 import PositionExaminer
 from otp.otpbase import OTPGlobals

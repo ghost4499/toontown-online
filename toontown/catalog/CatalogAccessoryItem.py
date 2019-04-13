@@ -1,12 +1,19 @@
-import CatalogItem
-from CatalogAccessoryItemGlobals import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import CatalogItem
+    from .CatalogAccessoryItemGlobals import *
+else:
+    from pandac.PandaModules import *
+    import CatalogItem
+    from CatalogAccessoryItemGlobals import *
+
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toon import ToonDNA
 import random, types
 from direct.showbase import PythonUtil
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 
 class CatalogAccessoryItem(CatalogItem.CatalogItem):
 

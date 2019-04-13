@@ -1,4 +1,8 @@
-from pandac.PandaModules import listProcessModules
+import sys
+if sys.version_info >= (3, 0):
+    pass # make a listProcessModules function somewhere
+else:
+    pass # from pandac.PandaModules import listProcessModules
 from direct.task import Task
 from toontown.hood import ZoneUtil
 from toontown.toonbase import ToontownGlobals
@@ -28,11 +32,12 @@ class ToontownAccess:
         return task.again
 
     def getModuleList(self):
-        moduleString = listProcessModules()
-        moduleList = []
-        if moduleString:
-            moduleList = moduleString.split(',')
-        return moduleList
+#        moduleString = listProcessModules()
+#        moduleList = []
+#        if moduleString:
+#            moduleList = moduleString.split(',')
+#        return moduleList
+        return []
 
     def sendUpdate(self, fieldName, args = [], sendToId = None):
         if base.cr and hasattr(base, 'localAvatar'):

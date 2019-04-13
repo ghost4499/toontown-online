@@ -369,7 +369,7 @@ class RaceGUI:
          3: TTLocalizer.KartRace_ThirdSuffix,
          4: TTLocalizer.KartRace_FourthSuffix}
         placeSorter.sort()
-        for x, p in zip(placeSorter, xrange(len(placeSorter), 0, -1)):
+        for x, p in zip(placeSorter, range(len(placeSorter), 0, -1)):
             self.racerDict[x[1]].update(place=p + placeCount - len(placeSorter))
 
         localRacer = self.racerDict[localAvatar.doId]

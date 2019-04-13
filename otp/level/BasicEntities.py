@@ -1,6 +1,10 @@
-import Entity
-import DistributedEntity
-from pandac.PandaModules import NodePath
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import NodePath
+    from . import DistributedEntity, Entity
+else:
+    from pandac.PandaModules import NodePath
+    import DistributedEntity, Entity
 
 class NodePathEntityBase:
 

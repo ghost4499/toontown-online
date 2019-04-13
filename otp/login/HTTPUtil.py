@@ -1,4 +1,8 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
 
 class HTTPUtilException(Exception):
 
@@ -29,7 +33,7 @@ def getHTTPResponse(url, http, body = ''):
     stream = hd.openReadBody()
     sr = StreamReader(stream, 1)
     response = sr.readlines()
-    for i in xrange(len(response)):
+    for i in range(len(response)):
         if response[i][-1] == '\n':
             response[i] = response[i][:-1]
 

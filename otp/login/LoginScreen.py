@@ -1,20 +1,23 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import TTAccount, GuiScreen
+else:
+    from pandac.PandaModules import *
+    import TTAccount, GuiScreen
+
 import os
 import time
 from datetime import datetime
-from pandac.PandaModules import *
 from direct.distributed.MsgTypes import *
 from direct.gui.DirectGui import *
-from direct.fsm import StateData
-from direct.fsm import ClassicFSM
-from direct.fsm import State
+from direct.fsm import State, StateData, ClassicFSM
 from direct.directnotify import DirectNotifyGlobal
 from direct.task import Task
 from otp.otpgui import OTPDialog
 from otp.otpbase import OTPLocalizer
 from otp.otpbase import OTPGlobals
 from otp.uberdog.AccountDetailRecord import AccountDetailRecord, SubDetailRecord
-import TTAccount
-import GuiScreen
 
 class LoginScreen(StateData.StateData, GuiScreen.GuiScreen):
     AutoLoginName = base.config.GetString('%s-auto-login%s' % (game.name, os.getenv('otp_client', '')), '')

@@ -377,7 +377,7 @@ class CogdoMazeGame(DirectObject):
 
     def randomDrop(self, centerTX, centerTY, radius):
         dropArray = []
-        for i in xrange(1, distance):
+        for i in range(1, distance):
             dropArray.append(i)
             dropArray.append(-1 * i)
 

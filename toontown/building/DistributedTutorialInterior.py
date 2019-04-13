@@ -1,18 +1,23 @@
-from toontown.toonbase.ToonBaseGlobal import *
-from pandac.PandaModules import *
-from direct.interval.IntervalGlobal import *
-from direct.distributed.ClockDelta import *
-from toontown.toonbase import ToontownGlobals
-import ToonInterior
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors, ToonInterior
+else:
+    from pandac.PandaModules import *
+    import ToonInteriorColors, ToonInterior
+
 from direct.directnotify import DirectNotifyGlobal
+from direct.distributed.ClockDelta import *
 from direct.distributed import DistributedObject
-import random
-import ToonInteriorColors
+from direct.interval.IntervalGlobal import *
+from toontown.toonbase import ToontownGlobals
+from toontown.toonbase.ToonBaseGlobal import *
 from toontown.hood import ZoneUtil
 from toontown.char import Char
 from toontown.suit import SuitDNA
 from toontown.suit import Suit
 from toontown.quest import QuestParser
+import random
 
 class DistributedTutorialInterior(DistributedObject.DistributedObject):
 

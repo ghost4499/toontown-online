@@ -1,12 +1,22 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .BattleBase import *
+    from .BattleProps import *
+    from .SuitBattleGlobals import *
+    from . import MovieUtil
+else:
+    from pandac.PandaModules import *
+    from BattleBase import *
+    from BattleProps import *
+    from SuitBattleGlobals import *
+    import MovieUtil
+
 from direct.interval.IntervalGlobal import *
-from BattleBase import *
-from BattleProps import *
 from toontown.toonbase.ToontownBattleGlobals import *
-from SuitBattleGlobals import *
 from direct.directnotify import DirectNotifyGlobal
 import random
-import MovieUtil
+
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieCamera')
 
 def chooseHealShot(heals, attackDuration):

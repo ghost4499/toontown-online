@@ -1,10 +1,15 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.showbase import DirectObject
-import random
 from direct.task import Task
 from direct.gui.DirectGui import *
-import string
 from direct.gui import OnscreenText
+import random
+import string
 
 class NameTumbler(DirectFrame):
 

@@ -1,19 +1,25 @@
-from toontown.toonbase.ToonBaseGlobal import *
-from pandac.PandaModules import *
-from direct.interval.IntervalGlobal import *
-from direct.distributed.ClockDelta import *
-from toontown.toonbase import ToontownGlobals
-import cPickle
-import ToonInterior
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors
+    import pickle as cPickle
+else:
+    from pandac.PandaModules import *
+    import ToonInteriorColors, ToonInterior
+    import cPickle
+
 from direct.directnotify import DirectNotifyGlobal
-from direct.fsm import ClassicFSM, State
+from direct.distributed.ClockDelta import *
 from direct.distributed import DistributedObject
-from direct.fsm import State
-import random
-import ToonInteriorColors
+from direct.fsm import ClassicFSM, State
+from direct.interval.IntervalGlobal import *
+from toontown.toonbase import ToontownGlobals
+from toontown.toonbase.ToonBaseGlobal import *
 from toontown.hood import ZoneUtil
 from toontown.toon import ToonDNA
 from toontown.toon import ToonHead
+import random
+
 SIGN_LEFT = -4
 SIGN_RIGHT = 4
 SIGN_BOTTOM = -3.5

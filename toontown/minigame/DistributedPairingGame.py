@@ -87,7 +87,7 @@ class DistributedPairingGame(DistributedMinigame):
         if not testCard > -1:
             self.yCardInc *= 1.25
         self.cards = []
-        for index in xrange(len(self.deck.cards)):
+        for index in range(len(self.deck.cards)):
             cardValue = self.deck.cards[index]
             oneCard = PairingGameCard.PairingGameCard(cardValue)
             oneCard.load()
@@ -192,7 +192,7 @@ class DistributedPairingGame(DistributedMinigame):
         self.notify.debug('setGameReady')
         if DistributedMinigame.setGameReady(self):
             return
-        for index in xrange(self.numPlayers):
+        for index in range(self.numPlayers):
             avId = self.avIdList[index]
             toon = self.getAvatar(avId)
             if toon:
@@ -297,7 +297,7 @@ class DistributedPairingGame(DistributedMinigame):
         return newPos
 
     def getDeckOrderFromValue(self, value):
-        for index in xrange(len(self.cards)):
+        for index in range(len(self.cards)):
             if self.cards[index].value == value:
                 return index
 
@@ -523,10 +523,10 @@ class DistributedPairingGame(DistributedMinigame):
         halfRow = self.cardsPerRow / 2
         if self.cardsPerRow % 2:
             halfRow += 1
-        for i in xrange(halfRow):
-            for j in xrange(2):
+        for i in range(halfRow):
+            for j in range(2):
                 col = i + j * halfRow
-                for row in xrange(self.cardsPerCol):
+                for row in range(self.cardsPerCol):
                     card = self.getDeckOrderIndex(row, col)
                     if card > -1:
                         self.bonusTraversal.append(card)

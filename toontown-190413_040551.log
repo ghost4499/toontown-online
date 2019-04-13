@@ -1,0 +1,28 @@
+
+
+Starting Toontown...
+Current time: Sat Apr 13 04:05:51 2019 Central Standard Time
+('sys.path = ', ['', 'C:\\Panda3D-1.9.0\\python\\lib\\site-packages\\pytz-2014.2-py2.7.egg', 'C:\\Panda3D-1.9.0\\python\\lib\\site-packages\\ply-3.4-py2.7.egg', 'C:\\Panda3D-1.9.0\\python\\python27.zip', 'C:\\Panda3D-1.10.2', 'C:\\Panda3D-1.9.0\\python\\DLLs', 'C:\\Panda3D-1.9.0\\python\\lib', 'C:\\Panda3D-1.9.0\\python\\lib\\plat-win', 'C:\\Panda3D-1.9.0\\python\\lib\\lib-tk', 'C:\\Panda3D-1.9.0\\python', 'C:\\Panda3D-1.9.0', 'C:\\Panda3D-1.9.0\\bin', 'C:\\Panda3D-1.9.0\\python\\lib\\site-packages'])
+('sys.argv = ', ['C:\\Users\\kaleb\\git\\toontown-online\\toontown\\toonbase\\ToontownStart.py'])
+TTLocalizer: Running in language: english
+from toontown.toonbase.TTLocalizerEnglish import *
+OTPLocalizer: Running in language: english
+from otp.otpbase.OTPLocalizerEnglish import *
+setRegistry[EXIT_PAGE] = normal
+ToontownStart: Polling for game2 to finish...
+ToontownStart: Game2 is finished.
+ToontownStart: Starting the game.
+ToontownStart: setting default font
+Traceback (most recent call last):
+  File "C:\Panda3D-1.9.0\python\lib\runpy.py", line 162, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "C:\Panda3D-1.9.0\python\lib\runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "C:\Users\kaleb\git\toontown-online\toontown\toonbase\ToontownStart.py", line 44, in <module>
+    import ToonBase
+  File "toontown\toonbase\ToonBase.py", line 14, in <module>
+    from toontown.toonbase import ToontownAccess
+  File "toontown\toonbase\ToontownAccess.py", line 4
+    else:
+       ^
+IndentationError: expected an indented block

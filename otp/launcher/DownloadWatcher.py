@@ -1,7 +1,12 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+else:
+    from pandac.PandaModules import *
+
 from direct.task import Task
 from otp.otpbase import OTPLocalizer
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from direct.showbase.DirectObject import DirectObject
 
 class DownloadWatcher(DirectObject):

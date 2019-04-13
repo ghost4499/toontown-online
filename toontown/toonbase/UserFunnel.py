@@ -1,14 +1,16 @@
-import os, sys, socket, random
-from urllib import quote_plus
-from pandac.PandaModules import HTTPClient
-from pandac.PandaModules import HTTPCookie
-from pandac.PandaModules import URLSpec
-from pandac.PandaModules import Ramfile
-from pandac.PandaModules import Ostream
-from pandac.PandaModules import HTTPDate
-from pandac.PandaModules import DocumentSpec
-from direct.task.Task import Task
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import DocumentSpec, Ostream, Ramfile, HTTPClient, HTTPCookie, HTTPDate, URLSpec
+else:
+    from pandac.PandaModules import DocumentSpec, Ostream, Ramfile, HTTPClient, HTTPCookie, HTTPDate, URLSpec
+
 from direct.directnotify.DirectNotifyGlobal import directNotify
+from direct.task.Task import Task
+from urllib import quote_plus
+import os
+import socket
+import random
+
 notify = directNotify.newCategory('UserFunnel')
 
 class UserFunnel:

@@ -517,7 +517,7 @@ def getTexCardNode(accId):
 def checkKartDNAValidity(dna):
     if not checkNumFieldsValidity(len(dna)):
         return 0
-    for field in xrange(len(dna)):
+    for field in range(len(dna)):
         if field == KartDNA.bodyType:
             if dna[field] not in KartDict.keys():
                 return 0

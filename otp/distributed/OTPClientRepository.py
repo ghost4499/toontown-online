@@ -1,14 +1,22 @@
 import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .OtpDoGlobals import *
+    from . import OtpDoGlobals
+    from .TelemetryLimiter import TelemetryLimiter
+else:
+    from pandac.PandaModules import *
+    from OtpDoGlobals import *
+    import OtpDoGlobals
+    from TelemetryLimiter import TelemetryLimiter
+
 import time
 import string
 import types
 import random
 import gc
 import os
-from pandac.PandaModules import *
-from pandac.PandaModules import *
 from direct.gui.DirectGui import *
-from otp.distributed.OtpDoGlobals import *
 from direct.interval.IntervalGlobal import ivalMgr
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.distributed.ClientRepositoryBase import ClientRepositoryBase
@@ -42,8 +50,6 @@ from otp.login import HTTPUtil
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPLauncherGlobals
 from otp.uberdog import OtpAvatarManager
-from otp.distributed import OtpDoGlobals
-from otp.distributed.TelemetryLimiter import TelemetryLimiter
 from otp.ai.GarbageLeakServerEventAggregator import GarbageLeakServerEventAggregator
 from PotentialAvatar import PotentialAvatar
 

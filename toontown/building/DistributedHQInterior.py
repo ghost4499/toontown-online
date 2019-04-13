@@ -1,13 +1,20 @@
-from toontown.toonbase.ToonBaseGlobal import *
-from pandac.PandaModules import *
-from toontown.toonbase.ToontownGlobals import *
-import random
-from direct.task.Task import Task
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors
+    import pickle as cPickle
+else:
+    from pandac.PandaModules import *
+    import ToonInteriorColors
+    import cPickle
+
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
-import ToonInteriorColors
-import cPickle
+from direct.task.Task import Task
+from toontown.toonbase.ToonBaseGlobal import *
+from toontown.toonbase.ToontownGlobals import *
 from toontown.toonbase import TTLocalizer
+import random
 
 class DistributedHQInterior(DistributedObject.DistributedObject):
 

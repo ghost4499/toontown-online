@@ -1,7 +1,13 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import ToonInteriorColors
+else:
+    from pandac.PandaModules import *
+    import ToonInteriorColors
+
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.DistributedObject import DistributedObject
-from pandac.PandaModules import *
-from toontown.building import ToonInteriorColors
 from toontown.hood import ZoneUtil
 from toontown.toonbase.ToonBaseGlobal import *
 from toontown.toonbase.ToontownGlobals import *

@@ -1,13 +1,20 @@
-from pandac.PandaModules import *
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from .KnockKnockJokes import *
+    from . import DistributedAnimatedProp
+else:
+    from pandac.PandaModules import *
+    from KnockKnockJokes import *
+    import DistributedAnimatedProp
+
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
-from KnockKnockJokes import *
-from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM
-import DistributedAnimatedProp
-from toontown.distributed import DelayDelete
+from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
+from toontown.distributed import DelayDelete
 from toontown.hood import ZoneUtil
 
 class DistributedKnockKnockDoor(DistributedAnimatedProp.DistributedAnimatedProp):

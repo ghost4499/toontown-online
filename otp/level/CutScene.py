@@ -1,8 +1,13 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import BasicEntities
+else:
+    from pandac.PandaModules import *
+    import BasicEntities
+
 from direct.showbase import DirectObject
 from direct.directnotify import DirectNotifyGlobal
-import BasicEntities
-from pandac.PandaModules import *
-from pandac.PandaModules import *
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
 from toontown.toonbase import ToontownGlobals

@@ -1,8 +1,14 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import MovieCamera
+else:
+    from pandac.PandaModules import *
+    import MovieCamera
 from direct.interval.IntervalGlobal import *
-import MovieCamera
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import TTLocalizer
-from pandac.PandaModules import *
+
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieSOS')
 
 def doSOSs(calls):

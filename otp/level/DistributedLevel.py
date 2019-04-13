@@ -1,18 +1,24 @@
+import sys
+if sys.version_info >= (3, 0):
+    from panda3d.core import *
+    from . import Level, LevelConstants, LevelUtil
+    from . import EntityCreator
+    from otp.distributed.PythonUtil import Functor, sameElements, list2dict, uniqueElements
+else:
+    from pandac.PandaModules import *
+    import Level, LevelConstants, LevelUtil
+    import EntityCreator
+    from direct.showbase.PythonUtil import Functor, sameElements, list2dict, uniqueElements
+
 from direct.distributed.ClockDelta import *
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import Functor, sameElements, list2dict, uniqueElements
 from direct.interval.IntervalGlobal import *
 from toontown.distributed.ToontownMsgTypes import *
 from toontown.toonbase import ToontownGlobals
 from otp.otpbase import OTPGlobals
-from direct.distributed import DistributedObject
-import Level
-import LevelConstants
+from direct.distributed import DistributedObjec
 from direct.directnotify import DirectNotifyGlobal
-import EntityCreator
 from direct.gui import OnscreenText
 from direct.task import Task
-import LevelUtil
 import random
 
 class DistributedLevel(DistributedObject.DistributedObject, Level.Level):

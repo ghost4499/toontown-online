@@ -25,7 +25,7 @@ def printAllCashbotInfo():
 def iterateCashbotMints(func):
     from toontown.toonbase import ToontownGlobals
     for mintId in [ToontownGlobals.CashbotMintIntA, ToontownGlobals.CashbotMintIntB, ToontownGlobals.CashbotMintIntC]:
-        for floorNum in xrange(ToontownGlobals.MintNumFloors[mintId]):
+        for floorNum in range(ToontownGlobals.MintNumFloors[mintId]):
             func(MintLayout(mintId, floorNum))
 
 
@@ -723,7 +723,7 @@ class MintLayout:
             self.roomIds = self._genFloorLayout()
         hallwayRng = self.getRng()
         connectorRoomNames = MintRoomSpecs.CashbotMintConnectorRooms
-        for i in xrange(self.numHallways):
+        for i in range(self.numHallways):
             self.hallways.append(hallwayRng.choice(connectorRoomNames))
 
     def _genFloorLayout(self):
@@ -761,7 +761,7 @@ class MintLayout:
 
         if middleRoomsLeft > 0:
             actionRoomIds = numBattles2middleRoomIds[0]
-            for i in xrange(middleRoomsLeft):
+            for i in range(middleRoomsLeft):
                 roomId = rng.choice(actionRoomIds)
                 actionRoomIds.remove(roomId)
                 middleRoomIds.append(roomId)

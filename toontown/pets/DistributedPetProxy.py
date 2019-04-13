@@ -43,7 +43,7 @@ class DistributedPetProxy(DistributedObject.DistributedObject):
         self.safeZone = safeZone
 
     def __generateDistTraitFuncs(self):
-        for i in xrange(PetTraits.PetTraits.NumTraits):
+        for i in range(PetTraits.PetTraits.NumTraits):
             traitName = PetTraits.getTraitNames()[i]
             setterName = self.getSetterName(traitName)
 

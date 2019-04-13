@@ -163,14 +163,14 @@ class GolfingRecordsUI(DirectFrame):
         if bestHoles != self.lastHoleBest or bestCourses != self.lastCourseBest:
             numCourse = len(GolfGlobals.CourseInfo.keys())
             numHoles = len(GolfGlobals.HoleInfo.keys())
-            for i in xrange(numCourse):
+            for i in range(numCourse):
                 score = bestCourses[i]
                 if score != 0:
                     self.bestDisplayList[i]['text'] = (str(score),)
                 else:
                     self.bestDisplayList[i]['text'] = TTLocalizer.KartRace_Unraced
 
-            for i in xrange(numHoles):
+            for i in range(numHoles):
                 score = bestHoles[i]
                 if score != 0:
                     self.bestDisplayList[i + numCourse]['text'] = str(score)

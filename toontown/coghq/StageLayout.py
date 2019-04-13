@@ -24,8 +24,8 @@ def printAllCashbotInfo():
 
 def iterateLawbotStages(func):
     from toontown.toonbase import ToontownGlobals
-    for layoutId in xrange(len(stageLayouts)):
-        for floorNum in xrange(getNumFloors(layoutId)):
+    for layoutId in range(len(stageLayouts)):
+        for floorNum in range(getNumFloors(layoutId)):
             func(StageLayout(0, floorNum, layoutId))
 
 
@@ -627,7 +627,7 @@ class StageLayout:
         self.numHallways = self.numRooms - 1
         hallwayRng = self.getRng()
         connectorRoomNames = StageRoomSpecs.CashbotStageConnectorRooms
-        for i in xrange(self.numHallways):
+        for i in range(self.numHallways):
             self.hallways.append(hallwayRng.choice(connectorRoomNames))
 
     def getNumRooms(self):
