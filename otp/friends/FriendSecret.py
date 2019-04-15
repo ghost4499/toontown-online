@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 from direct.gui.DirectGui import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import StateData
@@ -11,6 +6,7 @@ import string
 from otp.otpbase import OTPLocalizer
 from otp.otpbase import OTPGlobals
 from otp.uberdog import RejectCode
+
 globalFriendSecret = None
 AccountSecret = 0
 AvatarSecret = 1

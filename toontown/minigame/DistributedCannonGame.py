@@ -1,5 +1,5 @@
 from direct.directnotify import DirectNotifyGlobal
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from DistributedMinigame import *
 from direct.distributed.ClockDelta import *
@@ -16,7 +16,7 @@ from toontown.effects import Splash
 from toontown.effects import DustCloud
 import CannonGameGlobals
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase import TTLocalizer
 LAND_TIME = 2
 WORLD_SCALE = 2.0
@@ -705,9 +705,6 @@ class DistributedCannonGame(DistributedMinigame):
         avId = task.avId
         self.notify.debug('FIRING CANNON FOR AVATAR ' + str(avId))
         flightResults = self.__calcFlightResults(avId, launchTime)
-        if not isClient():
-            print 'EXECWARNING DistributedCannonGame: %s' % flightResults
-            printStack()
         for key in flightResults:
             exec "%s = flightResults['%s']" % (key, key)
 

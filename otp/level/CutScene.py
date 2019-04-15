@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import BasicEntities
-else:
-    from pandac.PandaModules import *
-    import BasicEntities
-
+from panda3d.core import *
+from otp.level import BasicEntities
 from direct.showbase import DirectObject
 from direct.directnotify import DirectNotifyGlobal
 from direct.interval.IntervalGlobal import *

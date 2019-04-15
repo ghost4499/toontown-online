@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
-    from . import HolidayDecorator
-else:
-    from pandac.PandaModules import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
-    import HolidayDecorator
-
+from panda3d.core import Vec4, CSDefault, TransformState, NodePath, TransparencyAttrib
+from libotp import *
 from toontown.toonbase import ToontownGlobals
 from direct.interval.IntervalGlobal import Parallel, Sequence, Func, Wait
 

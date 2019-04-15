@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import StringStream
-else:
-    from pandac.PandaModules import StringStream
-
+from panda3d.core import StringStream
 from direct.distributed.PyDatagram import PyDatagram
 import random
 

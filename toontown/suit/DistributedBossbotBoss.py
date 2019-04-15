@@ -1,12 +1,13 @@
 import math
 import random
-from pandac.PandaModules import NametagGroup, CFSpeech, VBase3, CollisionPlane, CollisionNode, CollisionSphere, CollisionTube, NodePath, Plane, Vec3, Vec2, Point3, BitMask32, CollisionHandlerEvent, TextureStage, VBase4, BoundingSphere
+from panda3d.core import VBase3, CollisionPlane, CollisionNode, CollisionSphere, CollisionTube, NodePath, Plane, Vec3, Vec2, Point3, BitMask32, CollisionHandlerEvent, TextureStage, VBase4, BoundingSphere
+from libotp import NametagGroup, CFSpeech
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, LerpHprInterval, Parallel, LerpPosInterval, Track, ActorInterval, ParallelEndTogether, LerpFunctionInterval, LerpScaleInterval, LerpPosHprInterval, SoundInterval
 from direct.task import Task
 from direct.fsm import FSM
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.ClockDelta import globalClockDelta
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.task import Task
 from toontown.distributed import DelayDelete
 from toontown.toonbase import ToontownGlobals

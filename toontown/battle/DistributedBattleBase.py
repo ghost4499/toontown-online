@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import Movie, MovieUtil, BattleProps, BattleParticles
-    from .BattleBase import *
-else:
-    from pandac.PandaModules import *
-    import Movie, MovieUtil, BattleProps, BattleParticles
-    from BattleBase import *
+from panda3d.core import *
 
+from toontown.battle import Movie, MovieUtil, BattleProps, BattleParticles
+from toontown.battle.BattleBase import *
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *

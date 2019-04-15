@@ -1,11 +1,12 @@
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.direct import SmoothMover
+from panda3d.core import Point3, Vec3, VBase3, VBase4, BitMask32
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
 from direct.fsm import FSM
 from direct.distributed import DistributedObject
 from direct.showutil import Rope
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.task import Task
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer

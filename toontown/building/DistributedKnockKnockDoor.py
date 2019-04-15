@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .KnockKnockJokes import *
-    from . import DistributedAnimatedProp
-else:
-    from pandac.PandaModules import *
-    from KnockKnockJokes import *
-    import DistributedAnimatedProp
+from panda3d.core import *
 
+from toontown.building.KnockKnockJokes import *
+from toontown.building import DistributedAnimatedProp
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
 from direct.directnotify import DirectNotifyGlobal

@@ -1,19 +1,19 @@
-from pandac.PandaModules import Point3, CollisionSphere, CollisionNode
+from panda3d.core import Point3, CollisionSphere, CollisionNode
 from direct.showbase.DirectObject import DirectObject
-from direct.showbase.PythonUtil import Functor
+from otp.distributed.PythonUtil import Functor
 from direct.showbase.RandomNumGen import RandomNumGen
 from direct.task.Task import Task
 from toontown.minigame.MazeSuit import MazeSuit
-from CogdoGameGatherable import CogdoMemo
-from CogdoMazePlayer import CogdoMazePlayer
-from CogdoMazeLocalPlayer import CogdoMazeLocalPlayer
-from CogdoMazeGuiManager import CogdoMazeGuiManager
-from CogdoGameAudioManager import CogdoGameAudioManager
-from CogdoMazeGameObjects import CogdoMazeExit, CogdoMazeDrop
-from CogdoMazeSuits import CogdoMazeSuit, CogdoMazeSlowMinionSuit, CogdoMazeFastMinionSuit, CogdoMazeBossSuit
-from CogdoMazeGameMovies import CogdoMazeGameIntro, CogdoMazeGameFinish
-import CogdoMazeGameGlobals as Globals
-import CogdoUtil
+from toontown.cogdominium.CogdoGameGatherable import CogdoMemo
+from toontown.cogdominium.CogdoMazePlayer import CogdoMazePlayer
+from toontown.cogdominium.CogdoMazeLocalPlayer import CogdoMazeLocalPlayer
+from toontown.cogdominium.CogdoMazeGuiManager import CogdoMazeGuiManager
+from toontown.cogdominium.CogdoGameAudioManager import CogdoGameAudioManager
+from toontown.cogdominium.CogdoMazeGameObjects import CogdoMazeExit, CogdoMazeDrop
+from toontown.cogdominium.CogdoMazeSuits import CogdoMazeSuit, CogdoMazeSlowMinionSuit, CogdoMazeFastMinionSuit, CogdoMazeBossSuit
+from toontown.cogdominium.CogdoMazeGameMovies import CogdoMazeGameIntro, CogdoMazeGameFinish
+from toontown.cogdominium import CogdoMazeGameGlobals as Globals
+from toontown.cogdominium import CogdoUtil
 import math
 import random
 

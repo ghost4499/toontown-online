@@ -1,6 +1,6 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.fsm.FSM import FSM
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.interval.MetaInterval import Sequence
 from toontown.parties.PartyGlobals import DanceReverseLoopAnims, ToonDancingStates
 

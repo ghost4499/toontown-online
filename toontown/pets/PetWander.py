@@ -1,5 +1,5 @@
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import reduceAngle, randFloat, normalDistrib
+from panda3d.core import *
+from otp.distributed.PythonUtil import reduceAngle, randFloat, normalDistrib
 from direct.showbase import DirectObject
 from toontown.pets import PetChase
 from toontown.pets import PetConstants

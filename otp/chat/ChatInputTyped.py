@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 from direct.showbase import DirectObject
 from otp.otpbase import OTPGlobals
 import sys
@@ -132,21 +127,12 @@ class ChatInputTyped(DirectObject.DirectObject):
     def __execMessage(self, message):
         if not ChatInputTyped.ExecNamespace:
             ChatInputTyped.ExecNamespace = {}
-            if sys.version_info >= (3, 0):
-                exec 'from panda3d.core import *' in globals(), self.ExecNamespace
-            else:
-                exec 'from pandac.PandaModules import *' in globals(), self.ExecNamespace
+            exec 'from panda3d.core import *' in globals(), self.ExecNamespace
             self.importExecNamespace()
         try:
-            if not isClient():
-                print 'EXECWARNING ChatInputNormal eval: %s' % message
-                printStack()
             return str(eval(message, globals(), ChatInputTyped.ExecNamespace))
         except SyntaxError:
             try:
-                if not isClient():
-                    print 'EXECWARNING ChatInputNormal exec: %s' % message
-                    printStack()
                 exec message in globals(), ChatInputTyped.ExecNamespace
                 return 'ok'
             except:

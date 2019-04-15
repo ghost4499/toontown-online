@@ -1,17 +1,14 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import CatalogItem
-else:
-    from pandac.PandaModules import *
-    import CatalogItem
+from panda3d.core import *
 
+from toontown.catalog import CatalogItem
 from direct.gui.DirectGui import *
 from direct.showbase import DirectObject
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from otp.otpbase import OTPLocalizer
 from toontown.toontowngui import TTDialog
+
 NUM_ITEMS_SHOWN = 15
 
 class CatalogChatItemPicker(DirectObject.DirectObject):

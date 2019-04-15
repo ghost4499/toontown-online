@@ -6,7 +6,7 @@ from toontown.suit import SuitDNA
 from direct.actor import Actor
 import string
 from ToonHead import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
@@ -21,7 +21,7 @@ from toontown.hood import ZoneUtil
 from toontown.battle import SuitBattleGlobals
 from otp.otpbase import OTPGlobals
 from toontown.effects import DustCloud
-from direct.showbase.PythonUtil import Functor
+from otp.distributed.PythonUtil import Functor
 from toontown.distributed import DelayDelete
 import AccessoryGlobals
 import types

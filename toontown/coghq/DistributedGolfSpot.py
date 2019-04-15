@@ -1,12 +1,13 @@
 import math
-from pandac.PandaModules import Point3, CollisionSphere, CollisionNode, CollisionHandlerEvent, TextNode, VBase4, SmoothMover, NodePath, BitMask32
+from panda3d.core import Point3, CollisionSphere, CollisionNode, CollisionHandlerEvent, TextNode, VBase4, NodePath, BitMask32
+from panda3d.direct import SmoothMover
 from direct.fsm import FSM
 from direct.distributed import DistributedObject
 from direct.distributed.ClockDelta import globalClockDelta
 from direct.directnotify import DirectNotifyGlobal
 from direct.gui.DirectGui import DGG, DirectButton, DirectLabel, DirectWaitBar
 from direct.interval.IntervalGlobal import Sequence, Wait, ActorInterval, Parallel, Func, LerpPosInterval, LerpHprInterval, ProjectileInterval, LerpScaleInterval, SoundInterval
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.task import Task
 from toontown.golf import GolfGlobals
 from toontown.toonbase import ToontownGlobals

@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import Elevator
-else:
-    from pandac.PandaModules import *
-    import Elevator
+from panda3d.core import *
 
+from toontown.building import Elevator
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from toontown.hood import Place

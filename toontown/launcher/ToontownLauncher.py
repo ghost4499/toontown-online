@@ -3,11 +3,14 @@ import sys
 import time
 import types
 
+if not os.path.exists('logs/'):
+    os.mkdir('logs/')
+    print('Made new directory for logs')
+
 ltime = 1 and time.localtime()
 logSuffix = '%02d%02d%02d_%02d%02d%02d' % (ltime[0] - 2000,  ltime[1], ltime[2],
                                            ltime[3], ltime[4], ltime[5])
-
-logfile = 'toontown-' + logSuffix + '.log'
+logfile = os.path.join('logs', 'toontown-' + logSuffix + '.log')
 
 class LogAndOutput:
     def __init__(self, orig, log):
@@ -41,47 +44,11 @@ from otp.launcher.LauncherBase import LauncherBase
 from otp.otpbase import OTPLauncherGlobals
 from toontown.toonbase import TTLocalizer
 
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
+from panda3d.core import *
 
 class ToontownLauncher(LauncherBase):
-    GameName = 'Toontown'
-    LauncherPhases = [3, 3.5, 4, 5, 5.5, 6, 7, 8, 9, 10, 11, 12, 13]
-    TmpOverallMap = [0.25, 0.15, 0.12, 0.17, 0.08, 0.07, 0.05, 0.05, 0.017,
-                     0.011, 0.01, 0.012, 0.01]
-    RegistryKey = 'Software\\Disney\\Disney Online\\Toontown'
-    ForegroundSleepTime = 0.01
-    Localizer = TTLocalizer
-    VerifyFiles = 1
-    DecompressMultifiles = True
-
     def __init__(self):
-        if sys.argv[2] == 'Phase2.py':
-            sys.argv = sys.argv[:1] + sys.argv[3:]
-        if len(sys.argv) == 5 or len(sys.argv) == 6:
-            self.gameServer = sys.argv[2]
-            self.accountServer = sys.argv[3]
-            self.testServerFlag = int(sys.argv[4])
-        else:
-            print 'Error: Launcher: incorrect number of parameters'
-            sys.exit()
-
-        self.toontownBlueKey = 'TOONTOWN_BLUE'
-        self.toontownPlayTokenKey = 'TOONTOWN_PLAYTOKEN'
-        self.launcherMessageKey = 'LAUNCHER_MESSAGE'
-        self.game1DoneKey = 'GAME1_DONE'
-        self.game2DoneKey = 'GAME2_DONE'
-        self.tutorialCompleteKey = 'TUTORIAL_DONE'
-        self.toontownRegistryKey = 'Software\\Disney\\Disney Online\\Toontown'
-        if self.testServerFlag:
-            self.toontownRegistryKey = '%s%s' % (self.toontownRegistryKey, 'Test')
-        self.toontownRegistryKey = '%s%s' % (self.toontownRegistryKey, self.getProductName())
-        LauncherBase.__init__(self)
-        self.webAcctParams = 'WEB_ACCT_PARAMS'
-        self.parseWebAcctParams()
-        self.mainLoop()
+        pass
 
     def getValue(self, key, default=None):
         try:
@@ -99,55 +66,21 @@ class ToontownLauncher(LauncherBase):
         return self.testServerFlag
 
     def getGameServer(self):
-        return self.gameServer
+        return self.getValue('GAME_SERVER')
 
     def getLogFileName(self):
         return 'toontown'
 
-    def parseWebAcctParams(self):
-        s = config.GetString('fake-web-acct-params', '')
-        if not s:
-            s = self.getRegistry(self.webAcctParams)
-        self.setRegistry(self.webAcctParams, '')
-        l = s.split('&')
-        length = len(l)
-        dict = {}
-        for index in range(0, len(l)):
-            args = l[index].split('=')
-            if len(args) == 3:
-                [name, value] = args[-2:]
-                dict[name] = int(value)
-            elif len(args) == 2:
-                [name, value] = args
-                dict[name] = int(value)
-
-        self.secretNeedsParentPasswordKey = 1
-        if dict.has_key('secretsNeedsParentPassword'):
-            self.secretNeedsParentPasswordKey = dict['secretsNeedsParentPassword']
-        else:
-            self.notify.warning('no secretNeedsParentPassword token in webAcctParams')
-        self.notify.info('secretNeedsParentPassword = %d' % self.secretNeedsParentPasswordKey)
-
-        self.chatEligibleKey = 0
-        if dict.has_key('chatEligible'):
-            self.chatEligibleKey = dict['chatEligible']
-        else:
-            self.notify.warning('no chatEligible token in webAcctParams')
-        self.notify.info('chatEligibleKey = %d' % self.chatEligibleKey)
-
-    def getBlue(self):
-        blue = self.getValue(self.toontownBlueKey)
-        self.setValue(self.toontownBlueKey, '')
-        if blue == 'NO BLUE':
-            blue = None
-        return blue
-
     def getPlayToken(self):
-        playToken = self.getValue(self.toontownPlayTokenKey)
-        self.setValue(self.toontownPlayTokenKey, '')
-        if playToken == 'NO PLAYTOKEN':
-            playToken = None
-        return playToken
+        if __debug__:
+            token = self.getValue('LOGIN_TOKEN')
+        else:
+            try:
+                token = sys.argv[1]
+            except:
+                token = ''
+                return token
+        return token
 
     def setRegistry(self, name, value):
         if not self.WIN32:

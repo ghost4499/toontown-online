@@ -1,9 +1,9 @@
 import types
 import time
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.interval.IntervalGlobal import ivalMgr
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed import DistributedSmoothNode
@@ -12,7 +12,7 @@ from direct.distributed.PyDatagramIterator import PyDatagramIterator
 from direct.task import Task
 from direct.fsm import ClassicFSM
 from direct.fsm import State
-from direct.showbase.PythonUtil import Functor, ScratchPad
+from otp.distributed.PythonUtil import Functor, ScratchPad
 from direct.showbase.InputStateGlobal import inputState
 from otp.avatar import Avatar
 from otp.avatar import DistributedAvatar
@@ -86,7 +86,6 @@ class ToontownClientRepository(OTPClientRepository.OTPClientRepository):
         self.toons = {}
         if self.http.getVerifySsl() != HTTPClient.VSNoVerify:
             self.http.setVerifySsl(HTTPClient.VSNoDateCheck)
-        prepareAvatar(self.http)
         self.__forbidCheesyEffects = 0
         self.friendManager = None
         self.speedchatRelay = None

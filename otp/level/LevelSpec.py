@@ -1,6 +1,6 @@
 from pandac import PandaModules as PM
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase.PythonUtil import list2dict, uniqueElements
+from otp.distributed.PythonUtil import list2dict, uniqueElements
 import string
 import LevelConstants
 import types
@@ -91,9 +91,6 @@ class LevelSpec:
 
     def getCopyOfSpec(self, spec):
         specCopy = {}
-        if not isClient():
-            print 'EXECWARNING LevelSpec exec: %s' % self.getSpecImportsModuleName()
-            printStack()
         exec 'from %s import *' % self.getSpecImportsModuleName()
         for key in spec.keys():
             specCopy[key] = eval(repr(spec[key]))
@@ -373,9 +370,6 @@ class LevelSpec:
         def testPrettyString(self, prettyString = None):
             if prettyString is None:
                 prettyString = self.getPrettyString()
-            if not isClient():
-                print 'EXECWARNING LevelSpec exec 2: %s' % prettyString
-                printStack()
             exec prettyString
             if self._recurKeyTest(levelSpec, self.specDict):
                 return 1

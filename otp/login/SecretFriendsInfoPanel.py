@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .MultiPageTextFrame import MultiPageTextFrame
-else:
-    from pandac.PandaModules import *
-    from MultiPageTextFrame import MultiPageTextFrame
+from panda3d.core import *
 
+from otp.login.MultiPageTextFrame import MultiPageTextFrame
 from otp.otpbase.OTPGlobals import *
 from direct.gui.DirectGui import *
 from otp.otpbase import OTPLocalizer

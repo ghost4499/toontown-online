@@ -1,10 +1,17 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    import builtins as __builtin__
-else:
-    from pandac.PandaModules import *
-    import __builtin__
+from panda3d.core import *
+import __builtin__
+
+# Load some data so we can find our files
+loadPrcFile("config/dev.prc")
+
+vfs = VirtualFileSystem.getGlobalPtr()
+mounts = ConfigVariableList('vfs-mount')
+for mount in mounts:
+    mountFile, mountPoint = (mount.split(' ', 2) + [None, None, None])[:2]
+    mountFile = Filename(mountFile)
+    mountFile.makeAbsolute()
+    mountPoint = Filename(mountPoint)
+    vfs.mount(mountFile, mountPoint, 0)
 
 class game:
     name = 'toontown'
@@ -76,7 +83,7 @@ else:
 import ToontownLoader
 from direct.gui.DirectGui import *
 serverVersion = base.config.GetString('server-version', 'no_version_set')
-print('ToontownStart: serverVersion: ', serverVersion)
+print('ToontownStart: serverVersion: %s' % serverVersion)
 version = OnscreenText(serverVersion, pos=(-1.3, -0.975), scale=0.06, fg=Vec4(0, 0, 1, 0.6), align=TextNode.ALeft)
 loader.beginBulkLoad('init', TTLocalizer.LoaderLabel, 138, 0, TTLocalizer.TIP_NONE)
 from ToonBaseGlobal import *
@@ -111,6 +118,6 @@ if autoRun and launcher.isDummy() and (not Thread.isTrueThreads() or __name__ ==
     except SystemExit:
         raise
     except:
-        from direct.showbase import PythonUtil
+        from otp.distributed import PythonUtil
         print PythonUtil.describeException()
         raise

@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed import PythonUtil
-else:
-    from pandac.PandaModules import *
-    from direct.showbase import PythonUtil
+from panda3d.core import *
 
+from otp.distributed import PythonUtil
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals

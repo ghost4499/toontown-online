@@ -1,23 +1,18 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .ElevatorConstants import *
-    from .ElevatorUtils import *
-    from . DistributedElevator, DistributedElevatorExt
-else:
-    from pandac.PandaModules import *
-    from ElevatorConstants import *
-    from ElevatorUtils import *
-    import DistributedElevator, DistributedElevatorExt
+from panda3d.core import *
 
-from direct.distributed.ClockDelta import *
-from direct.interval.IntervalGlobal import *
-from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
+from direct.distributed.ClockDelta import *
 from direct.fsm import ClassicFSM, State
-from toontown.hood import ZoneUtil
+from direct.interval.IntervalGlobal import *
+
+from toontown.building.ElevatorConstants import *
+from toontown.building.ElevatorUtils import *
+from toontown.building import DistributedElevator, DistributedElevatorExt
+from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toontowngui import TTDialog
+from toontown.hood import ZoneUtil
 
 class DistributedBossElevator(DistributedElevatorExt.DistributedElevatorExt):
 

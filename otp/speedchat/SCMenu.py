@@ -1,22 +1,15 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed.PythonUtil import makeTuple
-    from .SCConstants import *
-    from .SCObject import SCObject
-else:
-    from pandac.PandaModules import *
-    from direct.showbase.PythonUtil import makeTuple
-    from SCConstants import *
-    from SCObject import SCObject
-
+from panda3d.core import *
+from otp.speedchat.SCConstants import *
+from otp.speedchat.SCObject import SCObject
+from otp.distributed.PythonUtil import makeTuple
 from direct.gui.DirectGui import *
 from direct.task import Task
 from direct.interval.IntervalGlobal import *
+from direct.showbase import DConfig
 import types
 
 class SCMenu(SCObject, NodePath):
-    config = getConfigShowbase()
+    config = DConfig
     SpeedChatRolloverTolerance = config.GetFloat('speedchat-rollover-tolerance', 0.08)
     WantFade = config.GetBool('want-speedchat-fade', 0)
     FadeDuration = config.GetFloat('speedchat-fade-duration', 0.2)

@@ -1,5 +1,5 @@
 from otp.ai.AIBaseGlobal import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from otp.otpbase import OTPGlobals
 from direct.directnotify import DirectNotifyGlobal
 import ToonDNA
@@ -17,7 +17,7 @@ from toontown.battle import SuitBattleGlobals
 from direct.task import Task
 from toontown.catalog import CatalogItemList
 from toontown.catalog import CatalogItem
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.distributed.ClockDelta import *
 from toontown.toonbase.ToontownGlobals import *
 import types

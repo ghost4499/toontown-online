@@ -1,7 +1,7 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from toontown.minigame.OrthoWalk import *
 from string import *
@@ -14,7 +14,7 @@ from toontown.toon import Toon
 from direct.showbase import RandomNumGen
 from toontown.toonbase import TTLocalizer
 import random
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from toontown.hood import Place
 import HouseGlobals
 from toontown.building import ToonInteriorColors

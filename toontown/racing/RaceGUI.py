@@ -1,5 +1,5 @@
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import clampScalar
+from panda3d.core import *
+from otp.distributed.PythonUtil import clampScalar
 from direct.distributed.ClockDelta import *
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
@@ -15,7 +15,7 @@ from toontown.racing.RaceHeadFrame import RaceHeadFrame
 from toontown.racing.RaceGag import RaceGag
 from toontown.racing.RaceEndPanels import RaceEndPanel
 from toontown.racing import RaceGlobals
-from pandac.PandaModules import CardMaker, OrthographicLens, LineSegs
+from panda3d.core import CardMaker, OrthographicLens, LineSegs
 from direct.particles.ParticleEffect import *
 from math import fmod
 from math import sqrt

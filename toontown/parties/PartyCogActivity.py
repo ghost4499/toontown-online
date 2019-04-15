@@ -4,10 +4,10 @@ from direct.interval.SoundInterval import SoundInterval
 from direct.interval.ActorInterval import ActorInterval
 from direct.interval.ProjectileInterval import ProjectileInterval
 from direct.distributed.ClockDelta import globalClockDelta
-from direct.showbase.PythonUtil import bound, lerp
+from otp.distributed.PythonUtil import bound, lerp
 from direct.showbase.DirectObject import DirectObject
-from pandac.PandaModules import NodePath, Point3, TextNode
-from pandac.PandaModules import CollisionSphere, CollisionNode, CollisionHandlerEvent
+from panda3d.core import NodePath, Point3, TextNode
+from panda3d.core import CollisionSphere, CollisionNode, CollisionHandlerEvent
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase.ToontownTimer import ToontownTimer

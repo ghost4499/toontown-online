@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import Vec3
-    from .Entity import Entity
-else:
-    from pandac.PandaModules import Vec3
-    from Entity import Entity
-
+from panda3d.core import Vec3
+from otp.level.Entity import Entity
 import string
 from direct.interval.IntervalGlobal import *
 

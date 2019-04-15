@@ -1,13 +1,9 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import TTAccount, GuiScreen
-else:
-    from pandac.PandaModules import *
-    import TTAccount, GuiScreen
+from panda3d.core import *
 
+from otp.login import TTAccount, GuiScreen
 from direct.gui.DirectGui import *
-from direct.fsm import StateData, ClassicFSM State
+from direct.fsm import StateData, ClassicFSM, State
 from otp.otpgui import OTPDialog
 from direct.directnotify import DirectNotifyGlobal
 from otp.otpbase import OTPLocalizer

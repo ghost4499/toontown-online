@@ -4,7 +4,7 @@ import RingAction
 import RingTracks
 import RingTrack
 import RingTrackGroup
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 STATIC = 0
 SIMPLE = 1
 COMPLEX = 2

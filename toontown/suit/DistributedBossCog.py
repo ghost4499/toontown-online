@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
 from direct.directnotify import DirectNotifyGlobal
@@ -19,7 +19,7 @@ from toontown.effects import DustCloud
 from toontown.toonbase import TTLocalizer
 from toontown.friends import FriendsListManager
 from direct.controls.ControlManager import CollisionHandlerRayStart
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 import random
 
 class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):

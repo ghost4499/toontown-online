@@ -1,5 +1,5 @@
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import reduceAngle
+from panda3d.core import *
+from otp.distributed.PythonUtil import reduceAngle
 from otp.movement import Impulse
 
 class PetFlee(Impulse.Impulse):

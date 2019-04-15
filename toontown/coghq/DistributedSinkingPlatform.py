@@ -1,12 +1,11 @@
-from pandac.PandaModules import *
+from panda3d.core import Vec3
+from panda3d.direct import WaitInterval
 from direct.distributed.ClockDelta import *
-from direct.interval.IntervalGlobal import *
 from direct.fsm import ClassicFSM, State
-from direct.fsm import State
 from otp.level import BasicEntities
-import MovingPlatform
+from toontown.coghq import MovingPlatform
 from direct.distributed import DistributedObject
-import SinkingPlatformGlobals
+from toontown.coghq import SinkingPlatformGlobals
 from direct.directnotify import DirectNotifyGlobal
 
 class DistributedSinkingPlatform(BasicEntities.DistributedNodePathEntity):

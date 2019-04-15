@@ -1,5 +1,5 @@
-from direct.showbase.PythonUtil import randFloat, normalDistrib, Enum
-from direct.showbase.PythonUtil import clampScalar
+from otp.distributed.PythonUtil import randFloat, normalDistrib, Enum
+from otp.distributed.PythonUtil import clampScalar
 from toontown.toonbase import TTLocalizer, ToontownGlobals
 import random, copy
 TraitDivisor = 10000

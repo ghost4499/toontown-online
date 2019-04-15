@@ -1,6 +1,6 @@
-from pandac.PandaModules import Point3, CollisionNode, CollisionSphere, CollisionHandlerEvent
+from panda3d.core import Point3, CollisionNode, CollisionSphere, CollisionHandlerEvent
 from direct.interval.IntervalGlobal import Func, Sequence, Wait
-from direct.showbase.PythonUtil import bound as clamp
+from otp.distributed.PythonUtil import bound as clamp
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import TTLocalizer
 from toontown.minigame.OrthoDrive import OrthoDrive

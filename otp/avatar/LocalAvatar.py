@@ -1,19 +1,12 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import DistributedAvatar, Avatar
-else:
-    from pandac.PandaModules import *
-    import DistributedAvatar, Avatar
-
+from panda3d.core import *
+from otp.avatar import DistributedAvatar, Avatar, PositionExaminer
 from libotp import Nametag, WhisperPopup
 from direct.gui.DirectGui import *
-from direct.showbase.PythonUtil import *
+from otp.distributed.PythonUtil import *
 from direct.interval.IntervalGlobal import *
 from direct.showbase.InputStateGlobal import inputState
 from direct.controls import ControlManager
 from direct.task import Task
-import PositionExaminer
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPRender
 import math

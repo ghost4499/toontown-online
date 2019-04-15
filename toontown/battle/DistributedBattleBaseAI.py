@@ -1,17 +1,10 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .BattleBase import *
-    from .BattleCalculatorAI import *
-    from .SuitBattleGlobals import *
-    from . import BattleExperienceAI
-else:
-    from pandac.PandaModules import *
-    from BattleBase import *
-    from BattleCalculatorAI import *
-    from SuitBattleGlobals import *
-    import BattleExperienceAI
+from panda3d.core import *
 
+from toontown.battle.BattleBase import *
+from toontown.battle.BattleCalculatorAI import *
+from toontown.battle.SuitBattleGlobals import *
+from toontown.battle import BattleExperienceAI
 from otp.ai.AIBase import *
 from direct.distributed.ClockDelta import *
 from toontown.toonbase.ToontownBattleGlobals import *

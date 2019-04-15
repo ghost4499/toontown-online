@@ -1,7 +1,7 @@
 from toontown.toonbase.ToontownGlobals import *
-from direct.interval.IntervalGlobal import *
+from panda3d.direct import WaitInterval
 from direct.directnotify import DirectNotifyGlobal
-import BasicEntities
+from otp.level import BasicEntities
 from toontown.suit import GoonPathData
 
 class PathEntity(BasicEntities.NodePathEntity):

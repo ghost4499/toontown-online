@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import AttribDesc, EntityTypeDesc
-    from otp.distributed.PythonUtil import mostDerivedLast
-else:
-    from pandac.PandaModules import *
-    import AttribDesc, EntityTypeDesc
-    from direct.showbase.PythonUtil import mostDerivedLast
+from panda3d.core import *
 
+from otp.level import AttribDesc, EntityTypeDesc
+from otp.distributed.PythonUtil import mostDerivedLast
 from direct.directnotify import DirectNotifyGlobal
 import types
 import os

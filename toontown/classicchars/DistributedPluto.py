@@ -1,12 +1,11 @@
-from pandac.PandaModules import *
+import sys
+from panda3d.core import *
+
+from toontown.classicchars import DistributedCCharBase, CharStateDatas
 from direct.interval.IntervalGlobal import *
-import DistributedCCharBase
 from direct.directnotify import DirectNotifyGlobal
-from direct.fsm import ClassicFSM, State
-from direct.fsm import State
+from direct.fsm import ClassicFSM, State, StateData
 from toontown.toonbase import ToontownGlobals
-import CharStateDatas
-from direct.fsm import StateData
 from direct.task import Task
 from toontown.toonbase import TTLocalizer
 from toontown.hood import MMHood

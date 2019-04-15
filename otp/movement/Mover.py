@@ -1,13 +1,6 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed import PythonUtil
-    import builtins as __builtin__
-else:
-    from pandac.PandaModules import *
-    from direct.showbase import PythonUtil
-    import __builtin__
-
+from panda3d.core import *
+import __builtin__
+from otp.distributed import PythonUtil
 from libotp import CMover
 from direct.directnotify import DirectNotifyGlobal
 from otp.movement.PyVec3 import PyVec3

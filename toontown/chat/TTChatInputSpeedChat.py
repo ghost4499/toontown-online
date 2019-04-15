@@ -1,5 +1,7 @@
+import sys
+from panda3d.core import *
+
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from otp.speedchat.SpeedChatTypes import *
 from toontown.speedchat.TTSpeedChatTypes import *
 from otp.speedchat.SpeedChat import SpeedChat
@@ -9,14 +11,14 @@ from toontown.speedchat import TTSCSingingTerminal
 from toontown.speedchat import TTSCIndexedTerminal
 from direct.showbase import DirectObject
 from direct.fsm import ClassicFSM, State
-from direct.fsm import State
-import string
 from otp.otpbase import OTPLocalizer
 from otp.otpbase import OTPGlobals
 from toontown.shtiker.OptionsPage import speedChatStyles
 from toontown.toonbase import TTLocalizer
 from toontown.parties.PartyGlobals import ActivityIds, DecorationIds
 from toontown.toonbase import ToontownGlobals
+import string
+
 scStructure = [[OTPLocalizer.SCMenuHello,
   {100: 0},
   {101: 0},

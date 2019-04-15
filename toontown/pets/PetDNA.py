@@ -1,7 +1,7 @@
 from toontown.toon import ToonDNA
-from pandac.PandaModules import VBase4
+from panda3d.core import VBase4
 from toontown.toonbase import TTLocalizer, ToontownGlobals
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 NumFields = 9
 Fields = {'head': 0,
  'ears': 1,

@@ -1,19 +1,15 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 from direct.showbase.DirectObject import *
 from direct.distributed.ClockDelta import *
 from direct.task import Task
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
 from otp.otpbase import OTPGlobals
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.showbase import GarbageReport
 import base64
 import time
+import sys
 import os
 import re
 

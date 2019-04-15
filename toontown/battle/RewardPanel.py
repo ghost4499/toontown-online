@@ -1,23 +1,20 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import BattleBase, Fanfare
-else:
-    from pandac.PandaModules import *
-    import BattleBase, Fanfare
+from panda3d.core import *
 
+from direct.directnotify import DirectNotifyGlobal
 from direct.gui.DirectGui import *
 from direct.interval.IntervalGlobal import *
-from toontown.toonbase import ToontownBattleGlobals
-from direct.directnotify import DirectNotifyGlobal
-from toontown.quest import Quests
-from toontown.suit import SuitDNA
-from toontown.toonbase import ToontownGlobals
-from toontown.toonbase import TTLocalizer
-from toontown.toon import NPCToons
+
+from otp.otpbase import OTPGlobals
+from toontown.battle.Fanfare import *
+from toontown.battle import BattleBase
 from toontown.coghq import CogDisguiseGlobals
 from toontown.shtiker import DisguisePage
-from otp.otpbase import OTPGlobals
+from toontown.suit import SuitDNA
+from toontown.toon import NPCToons
+from toontown.toonbase import ToontownBattleGlobals, ToontownGlobals, TTLocalizer
+from toontown.quest import Quests
+
 import random
 import string
 import copy

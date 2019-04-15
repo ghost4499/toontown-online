@@ -1,11 +1,10 @@
 from direct.gui.DirectGui import DirectFrame, DGG, DirectLabel
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
-from pandac.PandaModules import Point3, TextNode, Vec4
+from panda3d.core import Point3, TextNode, Vec4
 from toontown.minigame import TravelGameGlobals
 from toontown.toonbase import TTLocalizer
 from direct.interval.IntervalGlobal import Parallel, Sequence, LerpFunc, Func, Wait, SoundInterval
-from direct.showbase.PythonUtil import pdir
 
 class VoteResultsTrolleyPanel(DirectFrame):
     notify = DirectNotifyGlobal.directNotify.newCategory('VoteResultsTrolleyPanel')

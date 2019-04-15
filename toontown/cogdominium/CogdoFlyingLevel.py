@@ -1,14 +1,13 @@
-from pandac.PandaModules import NodePath, Plane, Vec3, Point3
-from pandac.PandaModules import CollisionPlane, CollisionNode
+from panda3d.core import *
 from direct.showbase.RandomNumGen import RandomNumGen
 from direct.showbase.DirectObject import DirectObject
-from direct.showbase.PythonUtil import bound as clamp
-import CogdoUtil
-import CogdoFlyingGameGlobals as Globals
-from CogdoFlyingLevelQuadrant import CogdoFlyingLevelQuadrant
-from CogdoFlyingObjects import CogdoFlyingGatherableFactory, CogdoFlyingPlatform, CogdoFlyingLevelFog
-from CogdoFlyingObstacles import CogdoFlyingObtacleFactory
-from CogdoGameExit import CogdoGameExit
+from otp.distributed.PythonUtil import bound as clamp
+from toontown.cogdominium import CogdoUtil
+from toontown.cogdominium import CogdoFlyingGameGlobals as Globals
+from toontown.cogdominium.CogdoFlyingLevelQuadrant import CogdoFlyingLevelQuadrant
+from toontown.cogdominium.CogdoFlyingObjects import CogdoFlyingGatherableFactory, CogdoFlyingPlatform, CogdoFlyingLevelFog
+from toontown.cogdominium.CogdoFlyingObstacles import CogdoFlyingObtacleFactory
+from toontown.cogdominium.CogdoGameExit import CogdoGameExit
 from otp.otpbase import OTPGlobals
 
 class CogdoFlyingLevel(DirectObject):

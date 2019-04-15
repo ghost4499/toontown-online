@@ -1,13 +1,6 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import ToonInteriorColors
-    import pickle as cPickle
-else:
-    from pandac.PandaModules import *
-    import ToonInteriorColors, ToonInterior
-    import cPickle
-
+from panda3d.core import *
+import cPickle
+from toontown.building import ToonInteriorColors, ToonInterior
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.ClockDelta import *
 from direct.distributed import DistributedObject

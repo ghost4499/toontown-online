@@ -1,5 +1,7 @@
+import sys
+from panda3d.core import *
+
 from direct.interval.IntervalGlobal import *
-from pandac.PandaModules import *
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.battle import BattleParticles

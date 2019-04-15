@@ -1,4 +1,4 @@
-from pandac.PandaModules import Point3
+from panda3d.core import Point3
 from direct.directnotify import DirectNotifyGlobal
 import HoodDataAI
 from toontown.toonbase import ToontownGlobals

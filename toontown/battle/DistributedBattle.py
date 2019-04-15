@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import DistributedBattleBase, SuitBattleGlobals, MovieUtil
-    from .BattleBase import *
-else:
-    from pandac.PandaModules import *
-    import DistributedBattleBase, SuitBattleGlobals, MovieUtil
-    from BattleBase import *
+from panda3d.core import *
 
+from toontown.battle import DistributedBattleBase, SuitBattleGlobals, MovieUtil
+from toontown.battle.BattleBase import *
 from direct.interval.IntervalGlobal import *
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownBattleGlobals

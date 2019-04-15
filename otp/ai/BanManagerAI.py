@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import HTTPClient, RamFile
-else:
-    from pandac.PandaModules import HTTPClient, RamFile
-
+from panda3d.core import HTTPClient, RamFile
 import urllib
 import os
 from direct.directnotify import DirectNotifyGlobal

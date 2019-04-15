@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import DistributedDoorAI, DistributedPetshopInteriorAI, FADoorCodes, DoorTypes
-else:
-    from pandac.PandaModules import *
-    from . import DistributedDoorAI, DistributedPetshopInteriorAI, FADoorCodes, DoorTypes
+from panda3d.core import *
 
+from toontown.building import DistributedDoorAI, DistributedPetshopInteriorAI, FADoorCodes, DoorTypes
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toon import NPCToons
 from toontown.toonbase import ToontownGlobals

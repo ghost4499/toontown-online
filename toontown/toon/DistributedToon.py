@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToontownGlobals import *
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
@@ -17,7 +17,7 @@ from direct.fsm import ClassicFSM
 from toontown.hood import ZoneUtil
 from toontown.distributed import DelayDelete
 from toontown.distributed.DelayDeletable import DelayDeletable
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from toontown.catalog import CatalogItemList
 from toontown.catalog import CatalogItem
 import TTEmote

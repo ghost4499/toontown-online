@@ -1,26 +1,26 @@
 import math
 import random
-from pandac.PandaModules import Vec3
-from direct.showbase import PythonUtil
+from panda3d.core import Vec3
+from otp.distributed import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from direct.task.Task import Task
 from direct.interval.FunctionInterval import Wait
 from direct.interval.IntervalGlobal import Func, LerpFunc, LerpPosInterval, LerpHprInterval, LerpFunctionInterval
 from direct.interval.MetaInterval import Sequence, Parallel
-from direct.showbase.PythonUtil import bound as clamp
+from otp.distributed.PythonUtil import bound as clamp
 from direct.distributed.ClockDelta import globalClockDelta
 from otp.otpbase import OTPGlobals
 from toontown.minigame.OrthoDrive import OrthoDrive
 from toontown.minigame.OrthoWalk import OrthoWalk
 from toontown.toonbase import TTLocalizer
-from CogdoFlyingCollisions import CogdoFlyingCollisions
-from CogdoFlyingPlayer import CogdoFlyingPlayer
-from CogdoFlyingGuiManager import CogdoFlyingGuiManager
-from CogdoFlyingInputManager import CogdoFlyingInputManager
-from CogdoFlyingCameraManager import CogdoFlyingCameraManager
-from CogdoFlyingObjects import CogdoFlyingPlatform, CogdoFlyingGatherable
-from CogdoFlyingLegalEagle import CogdoFlyingLegalEagle
-import CogdoFlyingGameGlobals as Globals
+from toontown.cogdominium.CogdoFlyingCollisions import CogdoFlyingCollisions
+from toontown.cogdominium.CogdoFlyingPlayer import CogdoFlyingPlayer
+from toontown.cogdominium.CogdoFlyingGuiManager import CogdoFlyingGuiManager
+from toontown.cogdominium.CogdoFlyingInputManager import CogdoFlyingInputManager
+from toontown.cogdominium.CogdoFlyingCameraManager import CogdoFlyingCameraManager
+from toontown.cogdominium.CogdoFlyingObjects import CogdoFlyingPlatform, CogdoFlyingGatherable
+from toontown.cogdominium.CogdoFlyingLegalEagle import CogdoFlyingLegalEagle
+from toontown.cogdominium import CogdoFlyingGameGlobals as Globals
 
 class CogdoFlyingLocalPlayer(CogdoFlyingPlayer):
     notify = DirectNotifyGlobal.directNotify.newCategory('CogdoFlyingLocalPlayer')

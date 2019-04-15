@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import SerialNumGen
+from otp.distributed.PythonUtil import SerialNumGen
 from direct.task import Task
 
 class SpeedMonitor:

@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import DistributedEntity
-else:
-    from pandac.PandaModules import *
-    import DistributedEntity
-
+from panda3d.core import *
+from otp.level import DistributedEntity
 from direct.distributed.ClockDelta import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM

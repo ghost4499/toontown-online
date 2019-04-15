@@ -1,25 +1,14 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import CatalogItemTypes
-    from . import CatalogItem
-    from .CatalogWallpaperItem import getAllWallpapers
-    from .CatalogFlooringItem import getAllFloorings
-    from .CatalogMouldingItem import getAllMouldings
-    from .CatalogWainscotingItem import getAllWainscotings
-    from .CatalogFurnitureItem import getAllFurnitures
-    from .CatalogFurnitureItem import FLTrunk
-else:
-    from pandac.PandaModules import *
-    import CatalogItemTypes
-    import CatalogItem
-    from CatalogWallpaperItem import getAllWallpapers
-    from CatalogFlooringItem import getAllFloorings
-    from CatalogMouldingItem import getAllMouldings
-    from CatalogWainscotingItem import getAllWainscotings
-    from CatalogFurnitureItem import getAllFurnitures
-    from CatalogFurnitureItem import FLTrunk
+from panda3d.core import *
 
+from toontown.catalog import CatalogItemTypes
+from toontown.catalog import CatalogItem
+from toontown.catalog.CatalogWallpaperItem import getAllWallpapers
+from toontown.catalog.CatalogFlooringItem import getAllFloorings
+from toontown.catalog.CatalogMouldingItem import getAllMouldings
+from toontown.catalog.CatalogWainscotingItem import getAllWainscotings
+from toontown.catalog.CatalogFurnitureItem import getAllFurnitures
+from toontown.catalog.CatalogFurnitureItem import FLTrunk
 from direct.gui.DirectGui import *
 from toontown.toonbase import ToontownGlobals
 from toontown.toontowngui import TTDialog

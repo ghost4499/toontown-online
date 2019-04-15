@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import NSError, TextEncoder, TextNode
-else:
-    from pandac.PandaModules import NSError, TextEncoder, TextNode
-
+from panda3d.core import NSError, TextEncoder, TextNode
 from otp.otpbase import OTPLocalizer
 from direct.directnotify import DirectNotifyGlobal
 import string
@@ -15,18 +10,14 @@ def filterString(str, filter):
     for char in str:
         if char in filter:
             result = result + char
-
     return result
-
 
 def justLetters(str):
     letters = ''
     for c in str:
         if c.isalpha():
             letters = letters + c
-
     return letters
-
 
 def justUpper(str):
     upperCaseLetters = ''
@@ -34,9 +25,7 @@ def justUpper(str):
         if c.upper() != c.lower():
             if c == c.upper():
                 upperCaseLetters = upperCaseLetters + c
-
     return upperCaseLetters
-
 
 def wordList(str):
     words = str.split()
@@ -46,12 +35,9 @@ def wordList(str):
         for sw in subWords:
             if sw:
                 result.append(sw)
-
     return result
 
-
 def checkName(name, otherCheckFuncs = [], font = None):
-
     def longEnough(name):
         if len(name) < 2:
             notify.info('name is too short')
@@ -105,14 +91,12 @@ def checkName(name, otherCheckFuncs = [], font = None):
                 return OTPLocalizer.NCNeedLetters
 
     def hasVowels(name):
-
         def perWord(word):
             if '.' in word:
                 return None
             for char in word:
                 if ord(char) >= 128:
                     return None
-
             letters = filterString(word, string.letters)
             if len(letters) > 2:
                 vowels = filterString(letters, 'aeiouyAEIOUY')
@@ -120,14 +104,12 @@ def checkName(name, otherCheckFuncs = [], font = None):
                     notify.info('word "%s" has no vowels' % TextEncoder().encodeWtext(word))
                     return OTPLocalizer.NCNeedVowels
             return None
-
         for word in wordList(name):
             problem = perWord(word)
             if problem:
                 return problem
 
     def monoLetter(name):
-
         def perWord(word):
             word = word
             letters = justLetters(word)
@@ -137,7 +119,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
                 if filtered == letters:
                     notify.info('word "%s" uses only one letter' % TextEncoder().encodeWtext(word))
                     return OTPLocalizer.NCGeneric
-
         for word in wordList(name):
             problem = perWord(word)
             if problem:
@@ -152,7 +133,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
             if not name[i+1].isalpha():
                 return 0
             return 1
-
         i=0
         while 1:
             i = name.find('-', i, len(name))
@@ -172,7 +152,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
             if not name[i+1].isspace():
                 return OTPLocalizer.NCCommaUsage
             return None
-
         i=0
         while 1:
             i = name.find(',', i, len(name))
@@ -204,7 +183,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
                 if not (word[1] == '.' and word[3] == '.'):
                     notify.info('word "%s" does not fit the J.T. pattern' % TextEncoder().encodeWtext(word))
                     return OTPLocalizer.NCPeriodUsage
-
         return None
 
     def checkApostrophes(name):
@@ -214,7 +192,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
             if numApos > 2:
                 notify.info('word "%s" has too many apostrophes.' % TextEncoder().encodeWtext(word))
                 return OTPLocalizer.NCApostrophes
-
         numApos = name.count("'")
         if numApos > 3:
             notify.info('name has too many apostrophes.')
@@ -232,7 +209,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
             for i in range(len(upperLetters)):
                 if not upperLetters[0].isupper():
                     return
-
             if upperLetters == letters:
                 notify.info('name is all caps')
                 return OTPLocalizer.NCAllCaps
@@ -254,10 +230,8 @@ def checkName(name, otherCheckFuncs = [], font = None):
         halfwidthKatakana = range(65381, 65440)
         halfwidthCharacter = set(asciiSpace + halfwidthKatakana)
         allowedUtf8 = set(asciiSpace + hiragana + katakana + halfwidthKatakana)
-
         te = TextEncoder()
         dc = 0.0
-
         for char in (ord(char) for char in te.decodeText(name)):
             if char not in allowedUtf8:
                 if char in asciiDigits:
@@ -270,7 +244,6 @@ def checkName(name, otherCheckFuncs = [], font = None):
                 dc += 0.5
             else:
                 dc += 1
-
         if dc < 2:
             notify.info('name is too short: %0.1f' % dc)
             return OTPLocalizer.NCTooShort
@@ -293,9 +266,8 @@ def checkName(name, otherCheckFuncs = [], font = None):
             if count > 2:
                 notify.info('character %s is repeated too many times' % TextEncoder().encodeWtext(char))
                 return OTPLocalizer.NCRepeatedChar % TextEncoder().encodeWtext(char)
-
         return
-
+    
     checks = [printableChars,
      badCharacters,
      fontHasCharacters,
@@ -324,17 +296,13 @@ def checkName(name, otherCheckFuncs = [], font = None):
             print 'problem = %s' % problem
         if problem:
             return problem
-
     return None
-
 
 severity = notify.getSeverity()
 notify.setSeverity(NSError)
 for i in range(32):
     pass
-
 for c in '!"#$%&()*+/:;<=>?@[\\]^_`{|}~':
     pass
-
 notify.setSeverity(severity)
 del severity

@@ -1,30 +1,26 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .ElevatorConstants import *
-    from .ElevatorUtils import *
-    from .SuitBuildingGlobals import *
-else:
-    from pandac.PandaModules import *
-    from ElevatorConstants import *
-    from ElevatorUtils import *
-    from SuitBuildingGlobals import *
+from panda3d.core import *
 
-from direct.distributed.ClockDelta import *
-from direct.interval.IntervalGlobal import *
-from direct.directtools.DirectGeometry import *
-
-from direct.gui.DirectGui import *
-from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
-from direct.fsm import ClassicFSM, State
+from direct.directtools.DirectGeometry import *
+from direct.distributed.ClockDelta import *
 from direct.distributed import DistributedObject
-from toontown.suit import SuitDNA
-from toontown.toonbase import TTLocalizer
-from toontown.distributed import DelayDelete
-from toontown.toon import TTEmote
+from direct.fsm import ClassicFSM, State
+from direct.gui.DirectGui import *
+from direct.interval.IntervalGlobal import *
+
 from otp.avatar import Emote
+
+from toontown.distributed import DelayDelete
+from toontown.building.ElevatorConstants import *
+from toontown.building.ElevatorUtils import *
+from toontown.building.SuitBuildingGlobals import *
 from toontown.hood import ZoneUtil
+from toontown.suit import SuitDNA
+from toontown.toon import TTEmote
+from toontown.toonbase import ToontownGlobals
+from toontown.toonbase import TTLocalizer
+
 import random
 
 FO_DICT = {'s': 'tt_m_ara_cbe_fieldOfficeMoverShaker',

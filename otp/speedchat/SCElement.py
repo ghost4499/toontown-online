@@ -1,15 +1,9 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed.PythonUtil import boolEqual
-    from .SCConstants import *
-    from .SCObject import SCObject
-else:
-    from pandac.PandaModules import *
-    from direct.showbase.PythonUtil import boolEqual
-    from SCConstants import *
-    from SCObject import SCObject
+from panda3d.core import *
 
+from otp.distributed.PythonUtil import boolEqual
+from otp.speedchat.SCConstants import *
+from otp.speedchat.SCObject import SCObject
 from direct.gui.DirectGui import *
 from direct.task import Task
 from otp.otpbase import OTPGlobals

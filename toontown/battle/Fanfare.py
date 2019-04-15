@@ -1,17 +1,10 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .BattleBase import *
-    from .BattleProps import *
-    from .BattleSounds import *
-    from . import BattleParticles, MovieCamera, MovieUtil, RewardPanel
-else:
-    from pandac.PandaModules import *
-    from BattleBase import *
-    from BattleProps import *
-    from BattleSounds import *
-    import BattleParticles, MovieCamera, MovieUtil, RewardPanel
+from panda3d.core import *
 
+from toontown.battle.BattleBase import *
+from toontown.battle.BattleProps import *
+from toontown.battle.BattleSounds import *
+from toontown.battle import BattleParticles, MovieCamera, MovieUtil, RewardPanel
 from direct.interval.IntervalGlobal import *
 from toontown.toon.ToonDNA import *
 from toontown.suit.SuitDNA import *
@@ -19,6 +12,7 @@ from direct.particles.ParticleEffect import *
 from direct.gui.DirectGui import *
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
+
 notify = DirectNotifyGlobal.directNotify.newCategory('Fanfare')
 
 def makePanel(toon, showToonName):

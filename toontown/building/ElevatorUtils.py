@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .ElevatorConstants import *
-else:
-    from pandac.PandaModules import *
-    from ElevatorConstants import *
+from panda3d.core import *
 
+from toontown.building.ElevatorConstants import *
 from direct.interval.IntervalGlobal import *
-from ElevatorConstants import *
 
 def getLeftClosePoint(type):
     width = ElevatorData[type]['width']

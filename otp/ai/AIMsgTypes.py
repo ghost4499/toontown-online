@@ -1,5 +1,5 @@
 from otp.distributed.OtpDoGlobals import *
-from direct.showbase.PythonUtil import invertDictLossless
+from otp.distributed.PythonUtil import invertDictLossless
 OTP_SERVER_ROOT_DO_ID = 4007
 CHANNEL_CLIENT_BROADCAST = 4014
 BAD_CHANNEL_ID = 0
@@ -72,9 +72,6 @@ AIMsgName2Id = {'STATESERVER_OBJECT_GENERATE_WITH_REQUIRED': 2001,
  'DBSERVER_SET_STORED_VALUES': 1014,
  'SERVER_PING': 5002}
 AIMsgId2Names = invertDictLossless(AIMsgName2Id)
-if not isClient():
-    print 'EXECWARNING AIMsgTypes: %s' % AIMsgName2Id
-    printStack()
 for name, value in AIMsgName2Id.items():
     exec '%s = %s' % (name, value)
 

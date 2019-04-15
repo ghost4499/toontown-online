@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import TTAccount, GuiScreen
-else:
-    from pandac.PandaModules import *
-    import TTAccount, GuiScreen
+from panda3d.core import *
 
+from otp.login import TTAccount, GuiScreen
 import os
 import time
 from datetime import datetime

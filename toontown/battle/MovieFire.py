@@ -1,19 +1,11 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .BattleBase import *
-    from .BattleProps import *
-    from .BattleSounds import *
-    from . import MovieCamera, MovieUtil
-    from .MovieUtil import calcAvgSuitPos
-else:
-    from pandac.PandaModules import *
-    from BattleBase import *
-    from BattleProps import *
-    from BattleSounds import *
-    import MovieCamera, MovieUtil
-    from MovieUtil import calcAvgSuitPos
+from panda3d.core import *
 
+from toontown.battle.BattleBase import *
+from toontown.battle.BattleProps import *
+from toontown.battle.BattleSounds import *
+from toontown.battle import MovieCamera, MovieUtil
+from toontown.battle.MovieUtil import calcAvgSuitPos
 from direct.interval.IntervalGlobal import *
 from toontown.toon.ToonDNA import *
 from toontown.suit.SuitDNA import *

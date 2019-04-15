@@ -5,7 +5,7 @@ import copy
 from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.showbase import AppRunnerGlobal
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.showbase import DirectObject
 import BlinkingArrows
 from toontown.toon import ToonHeadFrame
@@ -17,7 +17,7 @@ from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
 from otp.speedchat import SpeedChatGlobals
 from toontown.ai import DistributedBlackCatMgr
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.interval.IntervalGlobal import *
 notify = DirectNotifyGlobal.directNotify.newCategory('QuestParser')
 lineDict = {}
@@ -1070,7 +1070,7 @@ searchPath = DSearchPath()
 if AppRunnerGlobal.appRunner:
     searchPath.appendDirectory(Filename.expandFrom('$TT_3_ROOT/phase_3/etc'))
 else:
-    searchPath.appendDirectory(Filename('phase_3/etc'))
+    searchPath.appendDirectory(Filename('resources/phase_3/etc'))
     searchPath.appendDirectory(Filename.fromOsSpecific(os.path.expandvars('$TOONTOWN/src/quest')))
     searchPath.appendDirectory(Filename.fromOsSpecific('toontown/src/quest'))
     searchPath.appendDirectory(Filename('.'))

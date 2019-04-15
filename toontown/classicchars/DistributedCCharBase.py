@@ -1,18 +1,18 @@
-from pandac.PandaModules import *
+import sys
+from panda3d.core import *
+
+from toontown.classicchars import CCharChatter, CCharPaths
 from direct.interval.IntervalGlobal import *
 from otp.avatar import Avatar
 from libotp import CFQuicktalker
 from toontown.char import CharDNA
 from toontown.char import DistributedChar
 from direct.directnotify import DirectNotifyGlobal
-from direct.fsm import ClassicFSM
-from direct.fsm import State
+from direct.fsm import ClassicFSM, State
 from direct.controls.ControlManager import CollisionHandlerRayStart
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase.TTLocalizer import Donald, DonaldDock, WesternPluto, Pluto
 from toontown.effects import DustCloud
-import CCharChatter
-import CCharPaths
 import string
 import copy
 

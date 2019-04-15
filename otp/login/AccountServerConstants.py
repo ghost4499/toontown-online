@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .RemoteValueSet import *
-    from . import TTAccount, HTTPUtil
-else:
-    from pandac.PandaModules import *
-    from RemoteValueSet import *
-    import TTAccount, HTTPUtil
+from panda3d.core import *
 
+from otp.login.RemoteValueSet import *
+from otp.login import TTAccount, HTTPUtil
 from direct.directnotify import DirectNotifyGlobal
 
 class AccountServerConstants(RemoteValueSet):

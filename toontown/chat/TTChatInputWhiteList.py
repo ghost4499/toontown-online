@@ -1,10 +1,11 @@
+import sys
+from panda3d.core import *
+
 from otp.chat.ChatInputWhiteListFrame import ChatInputWhiteListFrame
 from toontown.chat.TTWhiteList import TTWhiteList
 from direct.showbase import DirectObject
 from otp.otpbase import OTPGlobals
-import sys
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from otp.otpbase import OTPLocalizer
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals

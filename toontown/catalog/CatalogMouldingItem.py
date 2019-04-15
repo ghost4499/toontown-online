@@ -1,10 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import Texture
-    from .CatalogSurfaceItem import *
-else:
-    from pandac.PandaModules import Texture
-    from CatalogSurfaceItem import *
+from panda3d.core import Texture
+from toontown.catalog.CatalogSurfaceItem import *
 
 MTTextureName = 0
 MTColor = 1

@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import BattleBase
-else:
-    from pandac.PandaModules import *
-    import BattleBase
+from panda3d.core import *
 
+from toontown.battle import BattleBase
 from toontown.toonbase.ToontownBattleGlobals import *
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer

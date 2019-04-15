@@ -1,11 +1,11 @@
-from pandac.PandaModules import NodePath, VBase4
+from panda3d.core import NodePath, VBase4
 from direct.showbase.DirectObject import DirectObject
 from direct.showbase.RandomNumGen import RandomNumGen
 from toontown.minigame.MazeBase import MazeBase
-import CogdoMazeGameGlobals as Globals
-from CogdoMazeGameObjects import CogdoMazeWaterCooler
-import CogdoMazeData
-import CogdoUtil
+from toontown.cogdominium import CogdoMazeGameGlobals as Globals
+from toontown.cogdominium.CogdoMazeGameObjects import CogdoMazeWaterCooler
+from toontown.cogdominium import CogdoMazeData
+from toontown.cogdominium import CogdoUtil
 
 class CogdoMaze(MazeBase, DirectObject):
 

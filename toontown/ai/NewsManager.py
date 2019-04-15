@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import HolidayDecorator, HalloweenHolidayDecorator, CrashedLeaderBoardDecorator
-else:
-    from pandac.PandaModules import *
-    import HolidayDecorator, HalloweenHolidayDecorator, CrashedLeaderBoardDecorator
+from panda3d.core import *
 
+from toontown.ai import HolidayDecorator, HalloweenHolidayDecorator, CrashedLeaderBoardDecorator
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
@@ -13,9 +9,11 @@ from toontown.toonbase import ToontownBattleGlobals
 from toontown.battle import SuitBattleGlobals
 from toontown.toonbase import TTLocalizer
 from direct.interval.IntervalGlobal import *
+from toontown.speedchat import TTSCJellybeanJamMenu
+
 import calendar
 from copy import deepcopy
-from toontown.speedchat import TTSCJellybeanJamMenu
+
 decorationHolidays = [ToontownGlobals.WINTER_DECORATIONS,
  ToontownGlobals.WACKY_WINTER_DECORATIONS,
  ToontownGlobals.HALLOWEEN_PROPS,

@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 import string
 from direct.showbase.MessengerGlobal import *
 from direct.showbase.DirectObject import DirectObject

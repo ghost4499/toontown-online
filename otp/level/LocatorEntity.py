@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import NodePath
-    from . import Entity, BasicEntities
-else:
-    from pandac.PandaModules import NodePath
-    import Entity, BasicEntities
-
+from panda3d.core import NodePath
+from otp.level import Entity, BasicEntities
 from direct.directnotify import DirectNotifyGlobal
 
 class LocatorEntity(Entity.Entity, NodePath):
@@ -32,7 +26,6 @@ class LocatorEntity(Entity.Entity, NodePath):
                 self.reparentTo(hidden)
             else:
                 self.reparentTo(parent)
-
     if __dev__:
 
         def attribChanged(self, attrib, value):

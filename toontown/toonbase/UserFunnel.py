@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import DocumentSpec, Ostream, Ramfile, HTTPClient, HTTPCookie, HTTPDate, URLSpec
-else:
-    from pandac.PandaModules import DocumentSpec, Ostream, Ramfile, HTTPClient, HTTPCookie, HTTPDate, URLSpec
-
+from panda3d.core import DocumentSpec, Ostream, Ramfile, HTTPClient, HTTPCookie, HTTPDate, URLSpec
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.task.Task import Task
 from urllib import quote_plus

@@ -5,7 +5,7 @@ from direct.distributed import DistributedObjectAI
 import Level
 from direct.directnotify import DirectNotifyGlobal
 import EntityCreatorAI
-from direct.showbase.PythonUtil import Functor, weightedChoice
+from otp.distributed.PythonUtil import Functor, weightedChoice
 
 class DistributedLevelAI(DistributedObjectAI.DistributedObjectAI, Level.Level):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedLevelAI')

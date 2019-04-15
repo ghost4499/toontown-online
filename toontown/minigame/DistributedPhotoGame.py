@@ -1,5 +1,5 @@
 from direct.directnotify import DirectNotifyGlobal
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from DistributedMinigame import *
 from direct.distributed.ClockDelta import *
@@ -13,14 +13,14 @@ import math
 from toontown.toon import ToonHead
 import PhotoGameGlobals
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase import TTLocalizer
 from toontown.golf import BuildGeometry
 from toontown.toon import Toon
 from toontown.toon import ToonDNA
 from direct.interval.IntervalGlobal import *
 import random
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 import math
 import time
 from toontown.makeatoon import NameGenerator

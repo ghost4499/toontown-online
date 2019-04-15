@@ -1,8 +1,8 @@
 import math
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-from direct.showbase.PythonUtil import quantizeVec
+from otp.distributed.PythonUtil import quantizeVec
 from direct.task.Task import Task
 from toontown.toontowngui import TTDialog
 from toontown.toonbase.ToonBaseGlobal import *
@@ -262,9 +262,6 @@ class DistributedPartyCannonActivity(DistributedPartyActivity):
         if self.isLocalToonId(toonId):
             self.inWater = 0
             flightResults = self.__calcFlightResults(cannon, toonId, launchTime)
-            if not isClient():
-                print 'EXECWARNING DistributedPartyCannonActivity: %s' % flightResults
-                printStack()
             for key in flightResults:
                 exec "%s = flightResults['%s']" % (key, key)
 

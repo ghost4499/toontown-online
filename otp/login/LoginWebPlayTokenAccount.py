@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import LoginTTAccount
-else:
-    from pandac.PandaModules import *
-    import LoginTTAccount
+from panda3d.core import *
 
+from otp.login import LoginTTAccount
 from direct.directnotify import DirectNotifyGlobal
 
 class LoginWebPlayTokenAccount(LoginTTAccount.LoginTTAccount):

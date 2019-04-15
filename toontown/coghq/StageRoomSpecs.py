@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import invertDict
+from otp.distributed.PythonUtil import invertDict
 from toontown.toonbase import ToontownGlobals
 from toontown.coghq import NullCogs
 from toontown.coghq import LawbotOfficeOilRoom_Battle00_Cogs
@@ -48,9 +48,6 @@ CashbotStageMiddleRoomIDs = (1,)
 CashbotStageFinalRoomIDs = (2,)
 CashbotStageConnectorRooms = ('phase_11/models/lawbotHQ/LB_connector_7cubeL2', 'phase_11/models/lawbotHQ/LB_connector_7cubeLR')
 CashbotStageSpecModules = {}
-if not isClient():
-    print 'EXECWARNING StageRoomSpecs: %s' % CashbotStageRoomName2RoomId
-    printStack()
 for roomName, roomId in CashbotStageRoomName2RoomId.items():
     exec 'from toontown.coghq import %s' % roomName
     CashbotStageSpecModules[roomId] = eval(roomName)

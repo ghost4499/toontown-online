@@ -1,14 +1,11 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . CatalogItem
-else:
-    from pandac.PandaModules import *
-    import CatalogItem
+from panda3d.core import *
+
+from toontown.catalog import CatalogItem
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toon import ToonDNA
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.gui.DirectGui import *
 import random
 

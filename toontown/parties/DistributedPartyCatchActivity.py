@@ -1,10 +1,10 @@
-from pandac.PandaModules import Vec3, Point3, Point4, TextNode, NodePath
-from pandac.PandaModules import CollisionHandlerEvent, CollisionNode, CollisionSphere
+from panda3d.core import Vec3, Point3, Point4, TextNode, NodePath
+from panda3d.core import CollisionHandlerEvent, CollisionNode, CollisionSphere
 from direct.distributed.ClockDelta import globalClockDelta
 from direct.interval.IntervalGlobal import Sequence, Parallel
 from direct.interval.IntervalGlobal import LerpScaleInterval, LerpFunctionInterval, LerpColorScaleInterval, LerpPosInterval
 from direct.interval.IntervalGlobal import SoundInterval, WaitInterval
-from direct.showbase.PythonUtil import Functor, bound, lerp, SerialNumGen
+from otp.distributed.PythonUtil import Functor, bound, lerp, SerialNumGen
 from direct.showbase.RandomNumGen import RandomNumGen
 from direct.task.Task import Task
 from direct.distributed import DistributedSmoothNode

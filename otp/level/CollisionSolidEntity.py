@@ -1,14 +1,7 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import BasicEntities
-else:
-    from pandac.PandaModules import *
-    import BasicEntities
-
+from panda3d.core import *
 from otp.otpbase import OTPGlobals
 from direct.directnotify import DirectNotifyGlobal
-import BasicEntities
+from otp.level import BasicEntities
 
 class CollisionSolidEntity(BasicEntities.NodePathEntity):
     notify = DirectNotifyGlobal.directNotify.newCategory('CollisionSolidEntity')

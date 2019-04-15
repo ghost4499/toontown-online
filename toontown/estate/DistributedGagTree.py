@@ -1,7 +1,7 @@
 from toontown.estate import DistributedPlantBase
 from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toontowngui import TTDialog
 from toontown.toontowngui.TeaserPanel import TeaserPanel
@@ -9,7 +9,7 @@ from toontown.toonbase import TTLocalizer
 import GardenGlobals
 import HouseGlobals
 from direct.task import Task
-from pandac.PandaModules import *
+from panda3d.core import *
 from otp.otpbase import OTPGlobals
 from toontown.estate import DistributedLawnDecor
 DIRT_AS_WATER_INDICATOR = True

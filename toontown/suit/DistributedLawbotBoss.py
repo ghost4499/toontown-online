@@ -2,10 +2,10 @@ from direct.showbase.ShowBase import *
 from direct.interval.IntervalGlobal import *
 from toontown.battle.BattleProps import *
 from direct.distributed.ClockDelta import *
-from direct.showbase.PythonUtil import Functor
-from direct.showbase.PythonUtil import StackTrace
+from otp.distributed.PythonUtil import Functor
+from otp.distributed.PythonUtil import StackTrace
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.fsm import FSM
 from direct.fsm import ClassicFSM
 from direct.fsm import State

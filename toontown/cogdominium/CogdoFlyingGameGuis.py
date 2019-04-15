@@ -1,10 +1,10 @@
+from panda3d.core import TextNode, NodePath
 from direct.interval.IntervalGlobal import LerpFunctionInterval
 from direct.gui.DirectGui import DirectLabel, DirectFrame, DGG
-from direct.showbase.PythonUtil import bound as clamp
-from pandac.PandaModules import TextNode, NodePath
+from otp.distributed.PythonUtil import bound as clamp
 from toontown.toonbase import ToontownGlobals
-import CogdoUtil
-import CogdoFlyingGameGlobals as Globals
+from toontown.cogdominium import CogdoUtil
+from toontown.cogdominium import CogdoFlyingGameGlobals as Globals
 
 class CogdoFlyingProgressGui(DirectFrame):
 

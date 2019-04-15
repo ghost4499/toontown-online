@@ -1,8 +1,5 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
+from panda3d.core import *
 
 MainCameraBitmask = BitMask32.bit(0)
 ReflectionCameraBitmask = BitMask32.bit(1)

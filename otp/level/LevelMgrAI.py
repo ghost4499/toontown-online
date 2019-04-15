@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import Functor
+from otp.distributed.PythonUtil import Functor
 import LevelMgrBase
 
 class LevelMgrAI(LevelMgrBase.LevelMgrBase):

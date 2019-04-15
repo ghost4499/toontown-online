@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from direct.task.Task import Task
 from direct.interval.IntervalGlobal import *
@@ -14,7 +14,7 @@ from toontown.toonbase.ToontownTimer import ToontownTimer
 from toontown.toonbase import ToontownGlobals
 from direct.distributed.ClockDelta import *
 from otp.otpbase import OTPGlobals
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 
 class DistributedFindFour(DistributedNode.DistributedNode):
 

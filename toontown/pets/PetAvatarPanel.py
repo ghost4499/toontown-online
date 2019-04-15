@@ -1,9 +1,9 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.directnotify.DirectNotifyGlobal import *
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.showbase import DirectObject
-from direct.showbase.PythonUtil import Functor
+from otp.distributed.PythonUtil import Functor
 from direct.task.Task import Task
 from direct.distributed import DistributedObject
 from otp.avatar import Avatar, AvatarPanel

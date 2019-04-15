@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from direct.actor import Actor
 from otp.avatar import Avatar
@@ -12,7 +12,7 @@ import Suit
 from direct.task.Task import Task
 import SuitDNA
 from toontown.battle import BattleProps
-from direct.showbase.PythonUtil import Functor
+from otp.distributed.PythonUtil import Functor
 import string
 import types
 GenericModel = 'phase_9/models/char/bossCog'

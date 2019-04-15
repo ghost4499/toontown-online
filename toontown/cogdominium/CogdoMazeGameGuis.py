@@ -3,13 +3,13 @@ from direct.gui.DirectGui import DirectFrame, DGG
 from direct.task.Task import Task
 from direct.interval.MetaInterval import Sequence, Parallel
 from direct.interval.FunctionInterval import Wait, Func
-from pandac.PandaModules import TextNode, NodePath, Point3, CardMaker
+from panda3d.core import TextNode, NodePath, Point3, CardMaker
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownIntervals
 from toontown.minigame.MazeMapGui import MazeMapGui
-import CogdoMazeGameGlobals as Globals
-import CogdoUtil
+from toontown.cogdominium import CogdoMazeGameGlobals as Globals
+from toontown.cogdominium import CogdoUtil
 
 class CogdoMazeMapGui(MazeMapGui):
 

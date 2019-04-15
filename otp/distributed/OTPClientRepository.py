@@ -1,21 +1,14 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .OtpDoGlobals import *
-    from . import OtpDoGlobals
-    from .TelemetryLimiter import TelemetryLimiter
-else:
-    from pandac.PandaModules import *
-    from OtpDoGlobals import *
-    import OtpDoGlobals
-    from TelemetryLimiter import TelemetryLimiter
-
+from panda3d.core import *
 import time
 import string
 import types
 import random
+import sys
 import gc
 import os
+from otp.distributed.OtpDoGlobals import *
+from otp.distributed import OtpDoGlobals
+from otp.distributed.TelemetryLimiter import TelemetryLimiter
 from direct.gui.DirectGui import *
 from direct.interval.IntervalGlobal import ivalMgr
 from direct.directnotify.DirectNotifyGlobal import directNotify
@@ -24,7 +17,8 @@ from direct.fsm.ClassicFSM import ClassicFSM
 from direct.fsm.State import State
 from direct.task import Task
 from direct.distributed import DistributedSmoothNode
-from direct.showbase import PythonUtil, GarbageReport, BulletinBoardWatcher
+from otp.distributed import PythonUtil
+from direct.showbase import GarbageReport, BulletinBoardWatcher
 from direct.showbase.ContainerLeakDetector import ContainerLeakDetector
 from direct.showbase import MessengerLeakDetector
 from direct.showbase.GarbageReportScheduler import GarbageReportScheduler
@@ -148,26 +142,6 @@ class OTPClientRepository(ClientRepositoryBase):
             if base.logPrivateInfo:
                 print self.DISLToken
 
-        self.requiredLogin = config.GetString('required-login', 'auto')
-        if self.requiredLogin == 'auto':
-            self.notify.info('required-login auto.')
-        elif self.requiredLogin == 'green':
-            self.notify.error('The green code is out of date')
-        elif self.requiredLogin == 'blue':
-            if not self.blue:
-                self.notify.error('The tcr does not have the required blue login')
-        elif self.requiredLogin == 'playToken':
-            if not self.playToken:
-                self.notify.error('The tcr does not have the required playToken login')
-        elif self.requiredLogin == 'DISLToken':
-            if not self.DISLToken:
-                self.notify.error('The tcr does not have the required DISL token login')
-        elif self.requiredLogin == 'gameServer':
-            self.notify.info('Using game server name/password.')
-            self.DISLToken = None
-        else:
-            self.notify.error('The required-login was not recognized.')
-
         self.computeValidateDownload()
         self.wantMagicWords = base.config.GetString('want-magic-words', '')
         if self.launcher and hasattr(self.launcher, 'http'):
@@ -175,7 +149,6 @@ class OTPClientRepository(ClientRepositoryBase):
         else:
             self.http = HTTPClient()
 
-        self.allocateDcFile()
         self.accountOldAuth = config.GetBool('account-old-auth', 0)
         self.accountOldAuth = config.GetBool('%s-account-old-auth' % game.name,
                                              self.accountOldAuth)
@@ -183,18 +156,6 @@ class OTPClientRepository(ClientRepositoryBase):
         if self.useNewTTDevLogin:
             self.loginInterface = LoginTTSpecificDevAccount.LoginTTSpecificDevAccount(self)
             self.notify.info('loginInterface: LoginTTSpecificDevAccount')
-        elif self.accountOldAuth:
-            self.loginInterface = LoginGSAccount.LoginGSAccount(self)
-            self.notify.info('loginInterface: LoginGSAccount')
-        elif self.blue:
-            self.loginInterface = LoginGoAccount.LoginGoAccount(self)
-            self.notify.info('loginInterface: LoginGoAccount')
-        elif self.playToken:
-            self.loginInterface = LoginWebPlayTokenAccount(self)
-            self.notify.info('loginInterface: LoginWebPlayTokenAccount')
-        elif self.DISLToken:
-            self.loginInterface = LoginDISLTokenAccount(self)
-            self.notify.info('loginInterface: LoginDISLTokenAccount')
         else:
             self.loginInterface = LoginTTAccount.LoginTTAccount(self)
             self.notify.info('loginInterface: LoginTTAccount')
@@ -1819,12 +1780,6 @@ class OTPClientRepository(ClientRepositoryBase):
             fieldId = dclass.getFieldByName(fieldName).getNumber()
             self.queryObjectFieldId(doId, fieldId, context)
         return
-
-    def allocateDcFile(self):
-        dcName = 'Shard %s cannot be found.'
-        hash = HashVal()
-        hash.hashString(dcName)
-        self.http.setClientCertificatePassphrase(hash.asHex())
 
     def lostConnection(self):
         ClientRepositoryBase.lostConnection(self)

@@ -1,12 +1,7 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import Vec4
-else:
-    from pandac.PandaModules import Vec4
-
+from panda3d.core import Vec4
 from direct.gui.DirectGui import DirectFrame, DGG
 from direct.task import Task
-from direct.showbase.PythonUtil import bound
+from otp.distributed.PythonUtil import bound
 from otp.otpbase import OTPGlobals
 
 class OTPTimer(DirectFrame):

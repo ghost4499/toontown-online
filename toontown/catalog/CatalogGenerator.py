@@ -1,49 +1,26 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import CatalogItem
-    from . import CatalogItemList
-    from .CatalogFurnitureItem import CatalogFurnitureItem, nextAvailableCloset, getAllClosets, get50ItemCloset, getMaxClosets, get50ItemTrunk
-    from .CatalogAnimatedFurnitureItem import CatalogAnimatedFurnitureItem
-    from .CatalogClothingItem import CatalogClothingItem, getAllClothes
-    from .CatalogChatItem import CatalogChatItem, getChatRange
-    from .CatalogEmoteItem import CatalogEmoteItem
-    from .CatalogWallpaperItem import CatalogWallpaperItem, getWallpapers
-    from .CatalogFlooringItem import CatalogFlooringItem, getFloorings
-    from .CatalogMouldingItem import CatalogMouldingItem, getAllMouldings
-    from .CatalogWainscotingItem import CatalogWainscotingItem, getAllWainscotings
-    from .CatalogWindowItem import CatalogWindowItem
-    from .CatalogPoleItem import nextAvailablePole, getAllPoles
-    from .CatalogPetTrickItem import CatalogPetTrickItem, getAllPetTricks
-    from .CatalogGardenItem import CatalogGardenItem
-    from .CatalogToonStatueItem import CatalogToonStatueItem
-    from .CatalogRentalItem import CatalogRentalItem
-    from .CatalogGardenStarterItem import CatalogGardenStarterItem
-    from .CatalogNametagItem import CatalogNametagItem
-    from .CatalogAccessoryItem import CatalogAccessoryItem
-else:
-    from pandac.PandaModules import *
-    import CatalogItem
-    import CatalogItemList
-    from CatalogFurnitureItem import CatalogFurnitureItem, nextAvailableCloset, getAllClosets, get50ItemCloset, getMaxClosets, get50ItemTrunk
-    from CatalogAnimatedFurnitureItem import CatalogAnimatedFurnitureItem
-    from CatalogClothingItem import CatalogClothingItem, getAllClothes
-    from CatalogChatItem import CatalogChatItem, getChatRange
-    from CatalogEmoteItem import CatalogEmoteItem
-    from CatalogWallpaperItem import CatalogWallpaperItem, getWallpapers
-    from CatalogFlooringItem import CatalogFlooringItem, getFloorings
-    from CatalogMouldingItem import CatalogMouldingItem, getAllMouldings
-    from CatalogWainscotingItem import CatalogWainscotingItem, getAllWainscotings
-    from CatalogWindowItem import CatalogWindowItem
-    from CatalogPoleItem import nextAvailablePole, getAllPoles
-    from CatalogPetTrickItem import CatalogPetTrickItem, getAllPetTricks
-    from CatalogGardenItem import CatalogGardenItem
-    from CatalogToonStatueItem import CatalogToonStatueItem
-    from CatalogRentalItem import CatalogRentalItem
-    from CatalogGardenStarterItem import CatalogGardenStarterItem
-    from CatalogNametagItem import CatalogNametagItem
-    from CatalogAccessoryItem import CatalogAccessoryItem
+from panda3d.core import *
 
+from toontown.catalog import CatalogItem
+from toontown.catalog import CatalogItemList
+from toontown.catalog.CatalogFurnitureItem import CatalogFurnitureItem, nextAvailableCloset, getAllClosets, get50ItemCloset, getMaxClosets, get50ItemTrunk
+from toontown.catalog.CatalogAnimatedFurnitureItem import CatalogAnimatedFurnitureItem
+from toontown.catalog.CatalogClothingItem import CatalogClothingItem, getAllClothes
+from toontown.catalog.CatalogChatItem import CatalogChatItem, getChatRange
+from toontown.catalog.CatalogEmoteItem import CatalogEmoteItem
+from toontown.catalog.CatalogWallpaperItem import CatalogWallpaperItem, getWallpapers
+from toontown.catalog.CatalogFlooringItem import CatalogFlooringItem, getFloorings
+from toontown.catalog.CatalogMouldingItem import CatalogMouldingItem, getAllMouldings
+from toontown.catalog.CatalogWainscotingItem import CatalogWainscotingItem, getAllWainscotings
+from toontown.catalog.CatalogWindowItem import CatalogWindowItem
+from toontown.catalog.CatalogPoleItem import nextAvailablePole, getAllPoles
+from toontown.catalog.CatalogPetTrickItem import CatalogPetTrickItem, getAllPetTricks
+from toontown.catalog.CatalogGardenItem import CatalogGardenItem
+from toontown.catalog.CatalogToonStatueItem import CatalogToonStatueItem
+from toontown.catalog.CatalogRentalItem import CatalogRentalItem
+from toontown.catalog.CatalogGardenStarterItem import CatalogGardenStarterItem
+from toontown.catalog.CatalogNametagItem import CatalogNametagItem
+from toontown.catalog.CatalogAccessoryItem import CatalogAccessoryItem
 from direct.directnotify import DirectNotifyGlobal
 from direct.actor import Actor
 from toontown.toonbase import TTLocalizer

@@ -1,20 +1,15 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 import string
 from direct.showbase import DirectObject
 from otp.otpbase import OTPGlobals
-from direct.fsm import ClassicFSM
-from direct.fsm import State
+from direct.fsm import ClassicFSM, State
 from otp.login import SecretFriendsInfoPanel
 from otp.login import PrivacyPolicyPanel
 from otp.otpbase import OTPLocalizer
 from direct.directnotify import DirectNotifyGlobal
 from otp.login import LeaveToPayDialog
 from direct.gui.DirectGui import *
+
 ChatEvent = 'ChatEvent'
 NormalChatEvent = 'NormalChatEvent'
 SCChatEvent = 'SCChatEvent'

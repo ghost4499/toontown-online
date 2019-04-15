@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import LoginTTAccount
-    from .TTAccount import TTAccountException
-else:
-    from pandac.PandaModules import *
-    import LoginTTAccount
-    from TTAccount import TTAccountException
+from panda3d.core import *
 
+from otp.login import LoginTTAccount
+from otp.login.TTAccount import TTAccountException
 from direct.distributed.MsgTypes import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.PyDatagram import PyDatagram

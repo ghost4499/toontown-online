@@ -1,13 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .BattleBase import *
-    from . import DistributedBattleBase, MovieUtil, SuitBattleGlobals
-else:
-    from pandac.PandaModules import *
-    from BattleBase import *
-    import DistributedBattleBase, MovieUtil, SuitBattleGlobals
+from panda3d.core import *
 
+from toontown.battle.BattleBase import *
+from toontown.battle import DistributedBattleBase, MovieUtil, SuitBattleGlobals
 from direct.interval.IntervalGlobal import *
 from direct.actor import Actor
 from toontown.distributed import DelayDelete

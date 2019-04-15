@@ -1,11 +1,10 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from DistributedMinigame import *
 from direct.interval.IntervalGlobal import *
 from OrthoWalk import *
-from direct.showbase.PythonUtil import Functor, bound, lineupPos, lerp
+from otp.distributed.PythonUtil import Functor, bound, lerp
 from direct.fsm import ClassicFSM, State
-from direct.fsm import State
 from toontown.toonbase import TTLocalizer
 import CatchGameGlobals
 from direct.task.Task import Task

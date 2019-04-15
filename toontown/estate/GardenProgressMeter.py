@@ -1,7 +1,7 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.gui.DirectScrolledList import *
 from direct.distributed.ClockDelta import *
 from toontown.toontowngui import TTDialog
@@ -17,7 +17,7 @@ from toontown.toonbase import TTLocalizer
 import random
 import random
 import cPickle
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 import GameSprite
 from math import pi
 from toontown.estate import GardenGlobals

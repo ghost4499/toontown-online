@@ -1,11 +1,6 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
-    from . import HolidayDecorator
-else:
-    from pandac.PandaModules import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
-    import HolidayDecorator
-
+from panda3d.core import Vec4, CSDefault, TransformState, NodePath, TransparencyAttrib
+from libotp import *
+from toontown.ai import HolidayDecorator
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *

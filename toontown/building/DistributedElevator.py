@@ -1,17 +1,11 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed import PythonUtil
-    from .ElevatorConstants import *
-    from .ElevatorUtils import *
-    import BoardingGroupShow
-else:
-    from pandac.PandaModules import *
-    from direct.showbase import PythonUtil
-    from ElevatorConstants import *
-    from ElevatorUtils import *
-    import BoardingGroupShow
+from panda3d.core import *
 
+from otp.distributed import PythonUtil
+
+from toontown.building.ElevatorConstants import *
+from toontown.building.ElevatorUtils import *
+from toontown.building import BoardingGroupShow
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal

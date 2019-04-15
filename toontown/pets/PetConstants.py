@@ -1,5 +1,5 @@
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import Enum, invertDictLossless
+from panda3d.core import *
+from otp.distributed.PythonUtil import Enum, invertDictLossless
 import math
 from toontown.toonbase import ToontownGlobals
 OurPetsMoodChangedKey = 'OurPetsMoodChanged'

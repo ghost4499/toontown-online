@@ -1,7 +1,7 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from toontown.toonbase import ToontownGlobals
 from direct.distributed import DistributedObject
@@ -15,7 +15,7 @@ from direct.showbase import RandomNumGen
 from toontown.toonbase import TTLocalizer
 import random
 import MinigameGlobals
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from toontown.toon import TTEmote
 from otp.avatar import Emote
 from otp.distributed.TelemetryLimiter import RotationLimitToH, TLGatherAllAvs

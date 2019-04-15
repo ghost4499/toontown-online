@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from . import LoginBase
-else:
-    from pandac.PandaModules import *
-    import LoginBase
+from panda3d.core import *
 
+from otp.login import LoginBase
 from direct.distributed.MsgTypes import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.PyDatagram import PyDatagram

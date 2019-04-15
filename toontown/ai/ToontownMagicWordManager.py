@@ -1,8 +1,5 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
+from panda3d.core import *
 
 from direct.interval.IntervalGlobal import *
 from direct.distributed import PyDatagram
@@ -17,7 +14,7 @@ from otp.chat import ChatManager
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toon import Toon
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from toontown.suit import DistributedSuitPlanner
 from toontown.suit import DistributedBossCog
 from otp.otpbase import OTPGlobals
@@ -30,9 +27,11 @@ from toontown.distributed import ToontownDistrictStats
 from toontown.coderedemption import TTCodeRedemptionConsts
 from toontown.rpc import AwardManagerConsts
 import string
+
 if base.wantKarts:
     from toontown.racing.KartDNA import *
     from toontown.racing.KartShopGui import *
+
 if (__debug__):
     import pdb
 

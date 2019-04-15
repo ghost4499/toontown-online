@@ -4,14 +4,14 @@ from BattleBase import *
 from BattleCalculatorAI import *
 from toontown.toonbase.ToontownBattleGlobals import *
 from SuitBattleGlobals import *
-from direct.showbase.PythonUtil import addListsByValue
+from otp.distributed.PythonUtil import addListsByValue
 import DistributedBattleBaseAI
 from direct.task import Task
 from direct.directnotify import DirectNotifyGlobal
 import random
 from direct.fsm import State
 from direct.fsm import ClassicFSM, State
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 
 class DistributedBattleBldgAI(DistributedBattleBaseAI.DistributedBattleBaseAI):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedBattleBldgAI')

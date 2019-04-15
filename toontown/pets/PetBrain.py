@@ -1,6 +1,6 @@
-from pandac.PandaModules import *
-from direct.showbase.PythonUtil import weightedChoice, randFloat, Functor
-from direct.showbase.PythonUtil import list2dict
+from panda3d.core import *
+from otp.distributed.PythonUtil import weightedChoice, randFloat, Functor
+from otp.distributed.PythonUtil import list2dict
 from direct.showbase import DirectObject
 from direct.distributed import DistributedObjectAI
 from direct.directnotify import DirectNotifyGlobal

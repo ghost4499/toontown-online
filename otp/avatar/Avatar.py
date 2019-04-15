@@ -1,9 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 from libotp import Nametag, NametagGroup
 from libotp import CFSpeech, CFThought, CFTimeout, CFPageButton, CFNoQuitButton, CFQuitButton
 from otp.otpbase import OTPGlobals
@@ -14,9 +9,11 @@ from direct.distributed import ClockDelta
 from otp.avatar.ShadowCaster import ShadowCaster
 import random
 from otp.otpbase import OTPRender
-from direct.showbase.PythonUtil import recordCreationStack
+from otp.distributed.PythonUtil import recordCreationStack
+
 teleportNotify = DirectNotifyGlobal.directNotify.newCategory('Teleport')
 teleportNotify.showTime = True
+
 if config.GetBool('want-teleport-debug', 1):
     teleportNotify.setDebug(1)
 

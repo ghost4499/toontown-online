@@ -1,11 +1,5 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import VBase3, Point3
-    from . import DistributedBattleFinal, BattleProps
-else:
-    from pandac.PandaModules import VBase3, Point3
-    import DistributedBattleFinal, BattleProps
-
+from panda3d.core import VBase3, Point3
+from toontown.battle import DistributedBattleFinal, BattleProps
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, Parallel, Track, LerpPosInterval, ProjectileInterval, SoundInterval, ActorInterval
 from direct.directnotify import DirectNotifyGlobal
 from toontown.suit import SuitTimings

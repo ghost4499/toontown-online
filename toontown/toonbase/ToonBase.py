@@ -1,13 +1,13 @@
 from otp.otpbase import OTPBase
 from otp.otpbase import OTPLauncherGlobals
 from otp.otpbase import OTPGlobals
-from direct.showbase.PythonUtil import *
+from otp.distributed.PythonUtil import *
 import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
 import ToontownLoader
 from direct.gui import DirectGuiGlobals
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 import sys
 import os
 import math
@@ -15,28 +15,33 @@ from toontown.toonbase import ToontownAccess
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.launcher import ToontownDownloadWatcher
+from libotp import Settings, ChatBalloon, NametagGlobals, MarginManager
 
 class ToonBase(OTPBase.OTPBase):
     notify = DirectNotifyGlobal.directNotify.newCategory('ToonBase')
 
     def __init__(self):
+        OTPBase.OTPBase.__init__(self)
         if not config.GetInt('ignore-user-options', 0):
-            Settings.readSettings()
-            mode = not Settings.getWindowedMode()
-            music = Settings.getMusic()
-            sfx = Settings.getSfx()
-            toonChatSounds = Settings.getToonChatSounds()
-            musicVol = Settings.getMusicVolume()
-            sfxVol = Settings.getSfxVolume()
-            resList = [(640, 480),
-             (800, 600),
-             (1024, 768),
-             (1280, 1024),
-             (1600, 1200)]
-            res = resList[Settings.getResolution()]
-            if mode == None:
+            settings = Settings()
+            settings.readSettings()
+            mode = not settings.getWindowedMode()
+            print(mode)
+            music = settings.getMusic()
+            sfx = settings.getSfx()
+            toonChatSounds = settings.getToonChatSounds()
+            musicVol = settings.getMusicVolume()
+            sfxVol = settings.getSfxVolume()
+
+            # Get Display Information
+            # This also sets our getResolution() function
+            settings.getDisplayInformation()
+            res = settings.getResolution()
+            
+            if mode == True:
                 mode = 1
-            if res == None:
+
+            if res == None: # shouldn't happen.
                 res = (800, 600)
             loadPrcFileData('toonBase Settings Window Res', 'win-size %s %s' % (res[0], res[1]))
             loadPrcFileData('toonBase Settings Window FullScreen', 'fullscreen %s' % mode)
@@ -45,14 +50,13 @@ class ToonBase(OTPBase.OTPBase):
             loadPrcFileData('toonBase Settings Music Volume', 'audio-master-music-volume %s' % musicVol)
             loadPrcFileData('toonBase Settings Sfx Volume', 'audio-master-sfx-volume %s' % sfxVol)
             loadPrcFileData('toonBase Settings Toon Chat Sounds', 'toon-chat-sounds %s' % toonChatSounds)
-        OTPBase.OTPBase.__init__(self)
-        if not self.isMainWindowOpen():
-            try:
-                launcher.setPandaErrorCode(7)
-            except:
-                pass
-
-            sys.exit(1)
+#        if not self.isMainWindowOpen():
+#            try:
+#                launcher.setPandaErrorCode(7)
+#            except:
+#                pass
+#
+#            sys.exit(1)
         self.disableShowbaseMouse()
         base.debugRunningMultiplier /= OTPGlobals.ToonSpeedFactor
         self.toonChatSounds = self.config.GetBool('toon-chat-sounds', 1)
@@ -195,10 +199,6 @@ class ToonBase(OTPBase.OTPBase):
     def disableShowbaseMouse(self):
         self.useDrive()
         self.disableMouse()
-        if self.mouseInterface:
-            self.mouseInterface.reparentTo(self.dataUnused)
-        if base.mouse2cam:
-            self.mouse2cam.reparentTo(self.dataUnused)
 
     def __walking(self, pressed):
         self.walking = pressed

@@ -1,4 +1,4 @@
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 
 class KartShopGlobals:
     EVENTDICT = {'guiDone': 'guiDone',

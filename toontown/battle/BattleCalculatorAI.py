@@ -6,7 +6,7 @@ from toontown.suit import DistributedSuitBaseAI
 import SuitBattleGlobals, BattleExperienceAI
 from toontown.toon import NPCToons
 from toontown.pets import PetTricks, DistributedPetProxyAI
-from direct.showbase.PythonUtil import lerp
+from otp.distributed.PythonUtil import lerp
 
 class BattleCalculatorAI:
     AccuracyBonuses = [

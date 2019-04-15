@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from toontown.toonbase import ToontownGlobals
 from direct.distributed.ClockDelta import *
@@ -16,7 +16,7 @@ from toontown.effects import DustCloud
 from toontown.minigame import CannonGameGlobals
 import CannonGlobals
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase import TTLocalizer
 from direct.distributed import DistributedObject
 from toontown.effects import Wake
@@ -785,9 +785,6 @@ class DistributedCannon(DistributedObject.DistributedObject):
         if not self.toonHead:
             return Task.done
         flightResults = self.__calcFlightResults(avId, launchTime)
-        if not isClient():
-            print 'EXECWARNING DistributedCannon: %s' % flightResults
-            printStack()
         for key in flightResults:
             exec "%s = flightResults['%s']" % (key, key)
 

@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from toontown.toonbase.ToontownGlobals import *
 from direct.gui.DirectGui import *
@@ -9,7 +9,7 @@ from direct.fsm import ClassicFSM, State
 from direct.task.Task import Task
 from toontown.toonbase import TTLocalizer
 import random
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from otp.distributed.TelemetryLimiter import RotationLimitToH, TLGatherAllAvs, TLNull
 from toontown.hood import Place
 from toontown.hood import SkyUtil

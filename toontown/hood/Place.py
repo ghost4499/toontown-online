@@ -1,8 +1,8 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase.ToonBaseGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import StateData
-from direct.showbase.PythonUtil import PriorityCallbacks
+from otp.distributed.PythonUtil import PriorityCallbacks
 from toontown.safezone import PublicWalk
 from toontown.launcher import DownloadForceAcknowledge
 import TrialerForceAcknowledge

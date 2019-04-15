@@ -1,5 +1,5 @@
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.interval.IntervalGlobal import *
 from direct.distributed import DistributedObject
@@ -9,7 +9,7 @@ from toontown.toonbase import ToontownGlobals
 import VineGameGlobals
 import VineSpider
 
-class SwingVine(NodePath.NodePath):
+class SwingVine(NodePath):
     notify = DirectNotifyGlobal.directNotify.newCategory('SwingVine')
     defaultNormal = Vec3(1, 0, 0)
     SwingAnimPeriod = 6.0

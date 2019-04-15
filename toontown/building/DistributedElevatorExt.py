@@ -1,18 +1,11 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .ElevatorConstants import *
-    from .ElevatorUtils import *
-    from . import DistributedElevator
-else:
-    from pandac.PandaModules import *
-    from ElevatorConstants import *
-    from ElevatorUtils import *
-    import DistributedElevator
+from panda3d.core import *
 
+from toontown.building.ElevatorConstants import *
+from toontown.building.ElevatorUtils import *
+from toontown.building import DistributedElevator
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-
 from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM, State

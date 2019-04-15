@@ -3,12 +3,12 @@ from direct.distributed.ClockDelta import *
 from direct.task.Task import Task
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
-from pandac.PandaModules import CollisionSphere, CollisionNode
+from panda3d.core import CollisionSphere, CollisionNode
 from toontown.toonbase import ToontownGlobals
 from toontown.estate import DistributedCannon
 from toontown.estate import CannonGlobals
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toon import NPCToons
 from toontown.toon import ToonHead
 from toontown.toonbase import TTLocalizer
@@ -668,9 +668,6 @@ class DistributedLawbotCannon(DistributedObject.DistributedObject):
         if self.toonHead == None or not self.boss.state == 'BattleTwo':
             return Task.done
         flightResults = self.__calcFlightResults(avId, launchTime)
-        if not isClient():
-            print 'EXECWARNING DistributedLawbotCannon: %s' % flightResults
-            printStack()
         for key in flightResults:
             exec "%s = flightResults['%s']" % (key, key)
 

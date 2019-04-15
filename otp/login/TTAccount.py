@@ -1,12 +1,8 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from otp.distributed import PythonUtil
-else:
-    from pandac.PandaModules import *
-    import HTTPUtil, RemoteValueSet
-    from direct.showbase import PythonUtil
+from panda3d.core import *
 
+from otp.login import HTTPUtil, RemoteValueSet
+from otp.distributed import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from otp.otpbase import OTPLocalizer
 import copy

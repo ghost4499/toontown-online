@@ -1,8 +1,4 @@
-import sys
-if sys.version_info >= (3, 0):
-    pass # make a listProcessModules function somewhere
-else:
-    pass # from pandac.PandaModules import listProcessModules
+# from panda3d.core import listProcessModules
 from direct.task import Task
 from toontown.hood import ZoneUtil
 from toontown.toonbase import ToontownGlobals

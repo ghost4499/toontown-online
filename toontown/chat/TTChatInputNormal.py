@@ -1,5 +1,7 @@
+import sys
+from panda3d.core import *
+
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from otp.chat import ChatInputNormal
 from otp.otpbase import OTPLocalizer
 from otp.otpbase import OTPGlobals

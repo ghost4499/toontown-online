@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import bound as clamp
+from otp.distributed.PythonUtil import bound as clamp
 import CogdoMazeGameGlobals as Globals
 import math
 import random

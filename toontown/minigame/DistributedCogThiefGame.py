@@ -1,6 +1,7 @@
-from pandac.PandaModules import Point3, CollisionSphere, CollisionNode, CollisionHandlerEvent, NodePath, TextNode
+from panda3d.core import Point3, CollisionSphere, CollisionNode, CollisionHandlerEvent, NodePath, TextNode
+from panda3d.direct import WaitInterval
 from direct.distributed.ClockDelta import globalClockDelta
-from direct.interval.IntervalGlobal import Wait, LerpFunctionInterval, LerpHprInterval, Sequence, Parallel, Func, SoundInterval, ActorInterval, ProjectileInterval, Track, LerpScaleInterval, WaitInterval, LerpPosHprInterval
+from direct.interval.IntervalGlobal import Wait, LerpFunctionInterval, LerpHprInterval, Sequence, Parallel, Func, SoundInterval, ActorInterval, ProjectileInterval, Track, LerpScaleInterval, LerpPosHprInterval
 from direct.gui.DirectGui import DirectLabel
 from direct.fsm import ClassicFSM
 from direct.fsm import State

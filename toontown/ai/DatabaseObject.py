@@ -1,11 +1,7 @@
 import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-    from .ToontownAIMsgTypes import *
-else:
-    from pandac.PandaModules import *
-    from ToontownAIMsgTypes import *
+from panda3d.core import *
 
+from toontown.ai.ToontownAIMsgTypes import *
 from direct.directnotify.DirectNotifyGlobal import *
 from toontown.toon import DistributedToonAI
 from direct.distributed.PyDatagram import PyDatagram

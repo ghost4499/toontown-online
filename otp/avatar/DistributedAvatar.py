@@ -1,15 +1,10 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 import time
 import string
 from direct.distributed import DistributedNode
 from direct.actor.DistributedActor import DistributedActor
 from direct.task import Task
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from libotp import Nametag
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPLocalizer
@@ -17,8 +12,8 @@ from otp.speedchat import SCDecoders
 from otp.chat import ChatGarbler
 from otp.chat import ChatManager
 import random
-from Avatar import Avatar
-import AvatarDNA
+from otp.avatar.Avatar import Avatar
+from otp.avatar import AvatarDNA
 
 class DistributedAvatar(DistributedActor, Avatar):
     HpTextGenerator = TextNode('HpTextGenerator')

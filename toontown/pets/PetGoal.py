@@ -1,6 +1,6 @@
 from direct.task import Task
 from direct.fsm import FSM, ClassicFSM, State
-from direct.showbase.PythonUtil import randFloat, Functor
+from otp.distributed.PythonUtil import randFloat, Functor
 from direct.directnotify import DirectNotifyGlobal
 from toontown.pets import PetConstants
 from toontown.toon import DistributedToonAI

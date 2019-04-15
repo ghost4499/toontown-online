@@ -1,17 +1,19 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 import ShtikerPage
 from toontown.toontowngui import TTDialog
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
+from panda3d.core import *
 from toontown.toonbase import TTLocalizer
 import DisplaySettingsDialog
 from direct.task import Task
 from otp.speedchat import SpeedChat
 from otp.speedchat import SCColorScheme
 from otp.speedchat import SCStaticTextTerminal
-from direct.showbase import PythonUtil
+from otp.distributed import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
+from libotp import Settings
+
 speedChatStyles = ((2000,
   (200 / 255.0, 60 / 255.0, 229 / 255.0),
   (200 / 255.0, 135 / 255.0, 255 / 255.0),
@@ -122,9 +124,7 @@ class OptionsTabPage(DirectFrame):
     DisplaySettingsDelay = 60
     ChangeDisplaySettings = base.config.GetBool('change-display-settings', 1)
     ChangeDisplayAPI = base.config.GetBool('change-display-api', 0)
-    DisplaySettingsApiMap = {'OpenGL': Settings.GL,
-     'DirectX7': Settings.DX7,
-     'DirectX8': Settings.DX8}
+    DisplaySettingsApiMap = {'OpenGL': 1}
 
     def __init__(self, parent = aspect2d):
         self.parent = parent
@@ -373,7 +373,7 @@ class OptionsTabPage(DirectFrame):
             self.displaySettingsFullscreen = properties.getFullscreen()
             self.displaySettingsEmbedded = self.isPropertiesEmbedded(properties)
             self.displaySettingsApi = base.pipe.getInterfaceName()
-            self.displaySettingsApiChanged = apiChanged
+#            self.displaySettingsApiChanged = apiChanged
 
     def isPropertiesEmbedded(self, properties):
         result = False
@@ -441,14 +441,14 @@ class OptionsTabPage(DirectFrame):
         Settings.setResolutionDimensions(self.displaySettingsSize[0], self.displaySettingsSize[1])
         Settings.setWindowedMode(not self.displaySettingsFullscreen)
         Settings.setEmbeddedMode(self.displaySettingsEmbedded)
-        if self.displaySettingsApiChanged:
-            api = self.DisplaySettingsApiMap.get(self.displaySettingsApi)
-            if api == None:
-                self.notify.warning('Cannot save unknown display API: %s' % self.displaySettingsApi)
-            else:
-                Settings.setDisplayDriver(api)
-        Settings.writeSettings()
-        self.displaySettingsChanged = 0
+#        if self.displaySettingsApiChanged:
+#            api = self.DisplaySettingsApiMap.get(self.displaySettingsApi)
+#            if api == None:
+#                self.notify.warning('Cannot save unknown display API: %s' % self.displaySettingsApi)
+#            else:
+#                Settings.setDisplayDriver(api)
+#        Settings.writeSettings()
+#        self.displaySettingsChanged = 0
         return Task.done
 
     def __handleExitShowWithConfirm(self):

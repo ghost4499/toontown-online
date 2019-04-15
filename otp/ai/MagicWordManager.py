@@ -1,20 +1,15 @@
-import sys
-if sys.version_info >= (3, 0):
-    from panda3d.core import *
-else:
-    from pandac.PandaModules import *
-
+from panda3d.core import *
 from direct.showbase import GarbageReport, ContainerReport, MessengerLeakDetector
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
 from direct.showbase.InputStateGlobal import inputState
-from direct.showbase.ObjectCount import ObjectCount
+from otp.distributed.ObjectCount import ObjectCount
 from direct.task import Task
 from direct.task.TaskProfiler import TaskProfiler
 from otp.avatar import Avatar
 import string
-from direct.showbase import PythonUtil
-from direct.showbase.PythonUtil import Functor, DelayedCall, ScratchPad
+from otp.distributed import PythonUtil
+from otp.distributed.PythonUtil import Functor, DelayedCall, ScratchPad
 from otp.otpbase import OTPGlobals
 from direct.distributed.ClockDelta import *
 from direct.showutil.TexViewer import TexViewer
